@@ -24,7 +24,7 @@ public class Orders {
     private int id;
 
     @Column(name = "customerID")
-    private int customerID;
+    private String customerID;
 
     @Column(name = "productID")
     private int productID;
@@ -39,7 +39,7 @@ public class Orders {
 
     }
 
-    public Orders(int customerID, int productID, LocalDateTime orderDate, int quantity) {
+    public Orders(String customerID, int productID, LocalDateTime orderDate, int quantity) {
         this.customerID = customerID;
         this.productID = productID;
         this.orderDate = orderDate;
@@ -54,11 +54,11 @@ public class Orders {
         this.id = id;
     }
 
-    public int getCustomerID() {
+    public String getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(int customerID) {
+    public void setCustomerID(String customerID) {
         this.customerID = customerID;
     }
 

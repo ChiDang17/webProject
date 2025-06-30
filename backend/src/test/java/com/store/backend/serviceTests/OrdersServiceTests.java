@@ -29,7 +29,7 @@ public class OrdersServiceTests {
 
     @Test
     public void testCreateOrder() {
-        Orders order = new Orders(123, 456, LocalDateTime.now(), 1);
+        Orders order = new Orders("123", 456, LocalDateTime.now(), 1);
         Orders saveOrder = ordersService.createOrder(order);
 
         assertEquals((123), saveOrder.getCustomerID());
@@ -38,7 +38,7 @@ public class OrdersServiceTests {
 
     @Test
     public void testGetOrderByID() {
-        Orders order = new Orders(123, 456, LocalDateTime.now(), 1);
+        Orders order = new Orders("123", 456, LocalDateTime.now(), 1);
         Orders saveOrder = ordersService.createOrder(order);
 
         Orders getOrderID = ordersService.getOrderByID(saveOrder.getID());
@@ -48,8 +48,8 @@ public class OrdersServiceTests {
 
     @Test
     public void testGetAllOrders() {
-        Orders order1 = new Orders(123, 456, LocalDateTime.now(), 1);
-        Orders order2 = new Orders(456, 789, LocalDateTime.now(), 3);
+        Orders order1 = new Orders("123", 456, LocalDateTime.now(), 1);
+        Orders order2 = new Orders("456", 789, LocalDateTime.now(), 3);
 
         ordersService.createOrder(order1);
         ordersService.createOrder(order2);
@@ -61,7 +61,7 @@ public class OrdersServiceTests {
 
     @Test
     public void testUpdateOrder() {
-        Orders order1 = new Orders(123, 456, LocalDateTime.now(), 1);
+        Orders order1 = new Orders("123", 456, LocalDateTime.now(), 1);
         Orders saveOrder = ordersService.createOrder(order1);
 
         saveOrder.setQuantity(2);
@@ -73,7 +73,7 @@ public class OrdersServiceTests {
 
     @Test
     public void testDeleteOrder() {
-        Orders order1 = new Orders(123, 456, LocalDateTime.now(), 1);
+        Orders order1 = new Orders("123", 456, LocalDateTime.now(), 1);
         Orders saveOrder = ordersService.createOrder(order1);
         
         int orderID = saveOrder.getID();

@@ -32,7 +32,7 @@ public class OrdersControllerTests {
 
     @Test
     public void testCreateOrder() {
-        Orders order = new Orders(123, 4, LocalDateTime.now(), 2);
+        Orders order = new Orders("123", 4, LocalDateTime.now(), 2);
 
         when(ordersService.createOrder(order)).thenReturn(order);
         
@@ -43,7 +43,7 @@ public class OrdersControllerTests {
 
     @Test
     public void testGetOrderByID() {
-        Orders order = new Orders(123, 4, LocalDateTime.now(), 2);
+        Orders order = new Orders("123", 4, LocalDateTime.now(), 2);
         int id = 1;
 
         when(ordersService.getOrderByID(id)).thenReturn(order);
@@ -55,8 +55,8 @@ public class OrdersControllerTests {
 
     @Test
     public void testGetAllOrders() {
-        Orders order1 = new Orders(123, 4, LocalDateTime.now(), 2);
-        Orders order2 = new Orders(456, 3, LocalDateTime.now(), 3);
+        Orders order1 = new Orders("123", 4, LocalDateTime.now(), 2);
+        Orders order2 = new Orders("456", 3, LocalDateTime.now(), 3);
 
         when(ordersService.getAllOrders()).thenReturn(List.of(order1, order2));
 
@@ -67,8 +67,8 @@ public class OrdersControllerTests {
     @Test
     public void testUpdateOrder() {
         int id = 1;
-        Orders initial = new Orders(123, 4, LocalDateTime.now(), 2);
-        Orders updated = new Orders(456, 4, LocalDateTime.now(), 2);
+        Orders initial = new Orders("123", 4, LocalDateTime.now(), 2);
+        Orders updated = new Orders("456", 4, LocalDateTime.now(), 2);
 
         when(ordersService.getOrderByID(id)).thenReturn(initial);
         when(ordersService.updateOrder(any(Orders.class))).thenReturn(updated);

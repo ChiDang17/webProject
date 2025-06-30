@@ -19,7 +19,7 @@ CREATE TABLE customer (
 
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
-    customerID INTEGER NOT NULL REFERENCES customer(id),
+    customerID VARCHAR(255) NOT NULL REFERENCES customer(id),
     productID INTEGER NOT NULL REFERENCES product(id),
     orderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     quantity INTEGER NOT NULL
@@ -40,5 +40,5 @@ VALUES
 INSERT INTO orders
 (id, customerID, productID, orderDate, quantity)
 VALUES
--- example with customer #3, item #1, and 2 of that item 
-(3, 1, '2025-06-24 16:37:48', 2);
+-- example with customer #3a, item #1, and 2 of that item 
+('3a', 1, '2025-06-24 16:37:48', 2);
