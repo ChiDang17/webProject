@@ -1,3 +1,5 @@
+import { orderData } from '@/model/Orders';
+
 export const create_order = async (orderData: any) => {
     try {
         const response = await fetch(`/api/orders/create-order`, {
