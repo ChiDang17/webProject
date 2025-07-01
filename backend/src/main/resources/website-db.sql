@@ -25,6 +25,13 @@ CREATE TABLE orders (
     quantity INTEGER NOT NULL
 );
 
+CREATE TABLE cart (
+    id SERIAL PRIMARY KEY,
+    customerID VARCHAR(255) NOT NULL REFERENCES customer(id),
+    productID INTEGER NOT NULL REFERENCES product(id),
+    quantity INTEGER NOT NULL
+);
+
 INSERT INTO product
 (productName, price, color, size, description)
 VALUES
