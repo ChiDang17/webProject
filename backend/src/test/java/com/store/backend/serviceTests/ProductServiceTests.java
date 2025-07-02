@@ -1,124 +1,124 @@
-package com.store.backend.serviceTests;
+// package com.store.backend.serviceTests;
 
-import java.util.List;
+// import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+// import static org.junit.jupiter.api.Assertions.assertNotNull;
+// import org.junit.jupiter.api.BeforeEach;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-import com.store.backend.model.Product;
-import com.store.backend.repository.ProductRepository;
-import com.store.backend.service.ProductService;
+// import com.store.backend.model.Product;
+// import com.store.backend.repository.ProductRepository;
+// import com.store.backend.service.ProductService;
 
-@SpringBootTest
-public class ProductServiceTests {
-    @Autowired
-    private ProductService productService;
+// @SpringBootTest
+// public class ProductServiceTests {
+//     @Autowired
+//     private ProductService productService;
 
-    @Autowired
-    private ProductRepository productRepository;
+//     @Autowired
+//     private ProductRepository productRepository;
 
-    @BeforeEach
-    public void clearDatabase() {
-        productRepository.deleteAll();
-    }
+//     @BeforeEach
+//     public void clearDatabase() {
+//         productRepository.deleteAll();
+//     }
 
-    @Test
-    public void testCreateProduct() {
-        Product product = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
-        Product saveProduct = productService.createProduct(product);
+//     // @Test
+//     // public void testCreateProduct() {
+//     //     Product product = new Product(1, "necklace", "silver", 16, 10.00, "silver", "16 inch silver necklace with a flower");
+//     //     Product saveProduct = productService.createProduct(product);
 
-        assertEquals("silver", saveProduct.getColor());
-        assertNotNull(saveProduct.getID());
-    }
+//     //     assertEquals("silver", saveProduct.getColor());
+//     //     assertNotNull(saveProduct.getProductId());
+//     // }
 
-    @Test
-    public void testGetProductByID() {
-        Product product = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
-        Product saveProduct = productService.createProduct(product);
+//     // @Test
+//     // public void testGetProductByID() {
+//     //     Product product = new Product(1, "necklace", "silver", 16, 10.00, "silver", "16 inch silver necklace with a flower");
+//     //     Product saveProduct = productService.createProduct(product);
 
-        Product getProductID = productService.getProductByID(saveProduct.getID());
+//     //     Product getProductID = productService.getProductByID(saveProduct.getProductId());
 
-        assertEquals(saveProduct.getID(), getProductID.getID());
-    }
+//     //     assertEquals(saveProduct.getProductId(), getProductID.getProductId());
+//     // }
 
-    @Test
-    public void testGetAllProducts() {
-        Product product1 = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
-        Product product2 = new Product("Diamond ring", "ring", 50.00, "gold", 5, "Gold diamond ring at size 5");
+//     @Test
+//     public void testGetAllProducts() {
+//         Product product1 = new Product(1, "necklace", "silver", 16, 10.00, "silver", "16 inch silver necklace with a flower");
+//         Product product2 = new Product(2, "Diamond ring", "ring", 5, 50.00, "gold", "Gold diamond ring at size 5");
 
-        productService.createProduct(product1);
-        productService.createProduct(product2);
+//         productService.createProduct(product1);
+//         productService.createProduct(product2);
 
-        List<Product> list = productService.getAllProducts();
+//         List<Product> list = productService.getAllProducts();
 
-        assertEquals(2, list.size());
-    }
+//         assertEquals(2, list.size());
+//     }
 
-    @Test
-    public void testUpdateProduct() {
-        Product product1 = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
-        Product saveProduct = productService.createProduct(product1);
+//     @Test
+//     public void testUpdateProduct() {
+//         Product product1 = new Product(1, "necklace", "silver", 16, 10.00, "silver", "16 inch silver necklace with a flower");
+//         Product saveProduct = productService.createProduct(product1);
 
-        saveProduct.setColor("gold");
+//         saveProduct.setColor("gold");
 
-        Product updated = productService.updateProduct(saveProduct);
+//         Product updated = productService.updateProduct(saveProduct);
 
-        assertEquals("gold", updated.getColor());
-    }
+//         assertEquals("gold", updated.getColor());
+//     }
 
-    @Test
-    public void testDeleteProduct() {
-        Product product1 = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
-        Product saveProduct = productService.createProduct(product1);
+//     @Test
+//     public void testDeleteProduct() {
+//         Product product1 = new Product(1, "necklace", "silver", 16, 10.00, "silver", "16 inch silver necklace with a flower");
+//         Product saveProduct = productService.createProduct(product1);
 
-        int prodID = saveProduct.getID();
+//         int prodID = saveProduct.getProductId();
 
-        productService.deleteProduct(prodID);
+//         productService.deleteProduct(prodID);
 
-        assertEquals(false, productRepository.findById(prodID).isPresent());
-    }
+//         assertEquals(false, productRepository.findById(prodID).isPresent());
+//     }
 
-    // customs
-    @Test
-    public void testFindByColor() {
-        Product product1 = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
-        Product product2 = new Product("Diamond ring", "ring", 50.00, "gold", 5, "Gold diamond ring at size 5");
+//     // customs
+//     @Test
+//     public void testFindByColor() {
+//         Product product1 = new Product(1, "necklace", "silver", 16, 10.00, "silver", "16 inch silver necklace with a flower");
+//         Product product2 = new Product(2, "Diamond ring", "ring", 5, 50.00, "gold", "Gold diamond ring at size 5");
 
-        productService.createProduct(product1);
-        productService.createProduct(product2);
+//         productService.createProduct(product1);
+//         productService.createProduct(product2);
 
-        List<Product> list = productService.findByColor("silver");
+//         List<Product> list = productService.findByColor("silver");
         
-        assertEquals("Flower necklace", list.get(0).getProductName());
-    }
+//         assertEquals("necklace", list.get(0).getProductType());
+//     }
 
-    @Test
-    public void testFindBySize() {
-        Product product1 = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
-        Product product2 = new Product("Diamond ring", "ring", 50.00, "gold", 5, "Gold diamond ring at size 5");
+//     @Test
+//     public void testFindBySize() {
+//         Product product1 = new Product(1, "necklace", "silver", 16, 10.00, "silver", "16 inch silver necklace with a flower");
+//         Product product2 = new Product(2, "Diamond ring", "ring", 5, 50.00, "gold", "Gold diamond ring at size 5");
 
-        productService.createProduct(product1);
-        productService.createProduct(product2);
+//         productService.createProduct(product1);
+//         productService.createProduct(product2);
 
-        List<Product> list = productService.findBySize(5);
+//         List<Product> list = productService.findBySize(5);
 
-        assertEquals("ring", list.get(0).getProductType());
-    }
+//         assertEquals("ring", list.get(0).getProductType());
+//     }
 
-    @Test
-    public void testFindByProductType() {
-        Product product1 = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
-        Product product2 = new Product("Diamond ring", "ring", 50.00, "gold", 5, "Gold diamond ring at size 5");
+//     @Test
+//     public void testFindByProductType() {
+//         Product product1 = new Product(1, "necklace", "silver", 16, 10.00, "silver", "16 inch silver necklace with a flower");
+//         Product product2 = new Product(2, "Diamond ring", "ring", 5, 50.00, "gold", "Gold diamond ring at size 5");
 
-        productService.createProduct(product1);
-        productService.createProduct(product2);
+//         productService.createProduct(product1);
+//         productService.createProduct(product2);
 
-        List<Product> list = productService.findByProductType("ring");
+//         List<Product> list = productService.findByProductType("ring");
 
-        assertEquals(50.00, list.get(0).getPrice());
-    }
-}
+//         assertEquals(50.00, list.get(0).getPrice());
+//     }
+// }

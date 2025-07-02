@@ -3,6 +3,7 @@ package com.store.backend.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,13 +23,18 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping
-    public Product createProduct(@RequestBody Product product) {
-        return productService.createProduct(product);
+    public ResponseEntity<List<Product>> createProduct() {
+        try {
+            List<Product> products = productService.createProduct();
+            return ResponseEntity.ok(products);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(null);
+        }
     }
 
-    @GetMapping("/product/{id}")
-    public Product getProductByID(@PathVariable int id) {
-        return productService.getProductByID(id);
+    @GetMapping("/product/{productId}")
+    public Product getProductByID(@PathVariable String productId) {
+        return productService.getProductByID(productId);
     }
 
     @GetMapping
@@ -36,11 +42,11 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @PutMapping("/product/{id}") 
-    public Product updateProduct(@PathVariable int id, @RequestBody Product updated) {
-        Product current = productService.getProductByID(id);
+    @PutMapping("/{productId}") 
+    public Product updateProduct(@PathVariable String productId, @RequestBody Product updated) {
+        Product current = productService.getProductByID(productId);
 
-        current.setProductName(updated.getProductName());
+        current.setProductNumber(updated.getProductNumber());
         current.setProductType(updated.getProductType());
         current.setPrice(updated.getPrice());
         current.setColor(updated.getColor());
@@ -50,23 +56,23 @@ public class ProductController {
         return productService.updateProduct(current);
     }
 
-    @DeleteMapping("/product/{id}")
-    public void deleteProduct(@PathVariable int id) {
-        productService.deleteProduct(id);
+    @DeleteMapping("/{productId}")
+    public void deleteProduct(@PathVariable String productId) {
+        productService.deleteProduct(productId);
     }
 
     // custom ones
-    @GetMapping("/product/{color}")
+    @GetMapping("/color/{color}")
     public List<Product> findByColor(@PathVariable String color) {
         return productService.findByColor(color);
     }
 
-    @GetMapping("/product/{size}")
+    @GetMapping("/size/{size}")
     public List<Product> findBySize(@PathVariable int size) {
         return productService.findBySize(size);
     }
 
-    @GetMapping("/product/{productType}")
+    @GetMapping("/productType/{productType}")
     public List<Product> findByProductType(@PathVariable String productType) {
         return productService.findByProductType(productType);
     }

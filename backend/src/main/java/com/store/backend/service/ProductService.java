@@ -10,15 +10,21 @@ import com.store.backend.repository.ProductRepository;
 
 @Service
 public class ProductService {
-    @Autowired
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
+    private final ImportFromSpreadsheetService importFromSpreadsheetService;
 
-    public Product createProduct(Product product) {
-        return productRepository.save(product);
+    @Autowired
+    public ProductService(ProductRepository productRepository, ImportFromSpreadsheetService importFromSpreadsheetService) {
+        this.productRepository = productRepository;
+        this.importFromSpreadsheetService = importFromSpreadsheetService;
     }
 
-    public Product getProductByID(int id) {
-        return productRepository.findById(id)
+    public List<Product> createProduct() throws Exception {
+        return importFromSpreadsheetService.bulkImport("products.csv");
+    }
+
+    public Product getProductByID(String productId) {
+        return productRepository.findById(productId)
             .orElseThrow(() -> new RuntimeException("invalid id"));
     }
 
@@ -30,8 +36,8 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public void deleteProduct(int id) {
-        productRepository.deleteById(id);
+    public void deleteProduct(String productId) {
+        productRepository.deleteById(productId);
     }
 
     // custom ones

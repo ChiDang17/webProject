@@ -23,7 +23,7 @@ public class ProductRepositoryTests {
 
     @Test
     public void testFindByColor() {
-        Product product1 = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
+        Product product1 = new Product(1, "necklace", "silver", 16, 10.00, "silver", "16 inch silver necklace with a flower");
         productRepository.save(product1);
 
         List<Product> list = productRepository.findByColor("silver");
@@ -33,7 +33,7 @@ public class ProductRepositoryTests {
 
     @Test
     public void testFindBySize() {
-        Product product1 = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
+        Product product1 = new Product(1, "necklace", "silver", 16, 10.00, "silver", "16 inch silver necklace with a flower");
         productRepository.save(product1);
 
         List<Product> list = productRepository.findBySize(16);
@@ -43,7 +43,7 @@ public class ProductRepositoryTests {
 
     @Test
     public void testFindByProductType() {
-        Product product1 = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
+        Product product1 = new Product(1, "necklace", "silver", 16, 10.00, "silver", "16 inch silver necklace with a flower");
         productRepository.save(product1);
 
         List<Product> list = productRepository.findByProductType("necklace");

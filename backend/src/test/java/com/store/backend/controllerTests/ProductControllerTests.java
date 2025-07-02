@@ -30,20 +30,22 @@ public class ProductControllerTests {
     }
 
     @Test
-    public void testCreateProduct() {
-        Product product = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
-        
-        when(productService.createProduct(product)).thenReturn(product);
+    public void testCreateProduct() throws Exception {
+        Product product = new Product(1, "necklace", "silver", 16, 10.00, "silver", "16 inch silver necklace with a flower");
+        List<Product> products = List.of(product);
 
-        Product result = productController.createProduct(product);
+        when(productService.createProduct()).thenReturn(products);
 
-        assertEquals("Flower necklace", result.getProductName());
+        List<Product> result = productController.createProduct().getBody();
+
+        assert result != null;
+        assertEquals("necklace", result.get(0).getProductType());
     }
 
     @Test
     public void testGetProductByID() {
-        Product product = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
-        int id = 1;
+        Product product = new Product(1, "Flower necklace", "necklace", 16, 10.00, "silver", "16 inch silver necklace with a flower");
+        String id = "P001";
 
         when(productService.getProductByID(id)).thenReturn(product);
 
@@ -54,8 +56,8 @@ public class ProductControllerTests {
 
     @Test
     public void testGetAllProducts() {
-        Product product1 = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
-        Product product2 = new Product("Diamond ring", "ring", 50.00, "gold", 5, "Gold diamond ring at size 5");
+        Product product1 = new Product(1, "Flower necklace", "necklace", 16, 10.00, "silver", "16 inch silver necklace with a flower");
+        Product product2 = new Product(2, "Diamond ring", "ring", 5, 50.00, "gold", "Gold diamond ring at size 5");
 
         when(productService.getAllProducts()).thenReturn(List.of(product1, product2));
 
@@ -66,9 +68,9 @@ public class ProductControllerTests {
 
     @Test
     public void testUpdateProduct() {
-        Product initial = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
-        Product updated = new Product("Flower necklace", "necklace", 15.00, "silver", 16, "16 inch silver necklace with a flower");
-        int id = 1;
+        Product initial = new Product(1, "Flower necklace", "necklace", 16, 10.00, "silver", "16 inch silver necklace with a flower");
+        Product updated = new Product(1, "Flower necklace", "necklace", 16, 15.00, "silver", "16 inch silver necklace with a flower");
+        String id = "P001";
 
         when(productService.getProductByID(id)).thenReturn(initial);
         when(productService.updateProduct(any(Product.class))).thenReturn(updated);
@@ -80,7 +82,7 @@ public class ProductControllerTests {
 
     @Test
     public void testDeleteProduct() {
-        int id = 1;
+        String id = "P001";
 
         doNothing().when(productService).deleteProduct(id);
 
@@ -92,17 +94,17 @@ public class ProductControllerTests {
     // customs
     @Test
     public void testFindByColor() {
-        Product product = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
+        Product product = new Product(1, " necklace", "silver", 16, 10.00, "silver", "16 inch silver necklace with a flower");
         List<Product> list = List.of(product);
 
         when(productService.findByColor("silver")).thenReturn(list);
 
-        assertEquals(("Flower necklace"), list.get(0).getProductName());
+        assertEquals(("necklace"), list.get(0).getProductType());
     }
 
     @Test
     public void testFindBySize() {
-        Product product = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
+        Product product = new Product(1, " necklace", "silver", 16, 10.00, "silver", "16 inch silver necklace with a flower");
         List<Product> list = List.of(product);
 
         when(productService.findBySize(16)).thenReturn(list);
@@ -112,7 +114,7 @@ public class ProductControllerTests {
 
     @Test
     public void testFindByProductType() {
-        Product product = new Product("Flower necklace", "necklace", 10.00, "silver", 16, "16 inch silver necklace with a flower");
+        Product product = new Product(1, " necklace", "silver", 16, 10.00, "silver", "16 inch silver necklace with a flower");
         List<Product> list = List.of(product);
 
         when(productService.findByProductType("necklace")).thenReturn(list);

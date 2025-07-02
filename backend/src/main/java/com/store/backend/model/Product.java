@@ -1,84 +1,58 @@
 package com.store.backend.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
 
-@Entity
-@Table(name="product")
+@Document("products")
 public class Product {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "productName")
-    private String productName;
-
-    @Column(name = "productType")
+    private String productId;
+    
+    private int productNumber;
     private String productType;
-
-    @Column(name = "price")
-    private double price;
-
-    @Column(name = "color")
     private String color;
-
-    @Column(name = "size")
     private int size;
-
-    @Column(name = "description")
+    private double price;
     private String description;
+    private String imageLink;
 
     public Product() {
 
     }
 
-    public Product(String productName, String productType, double price, String color, int size, String description){
-        this.productName = productName;
+    public Product(int productNumber, String productType, String color, int size, double price, String description, String imageLink) {
+        this.productNumber = productNumber;
         this.productType = productType;
-        this.price = price;
         this.color = color;
         this.size = size;
+        this.price = price;
         this.description = description;
+        this.imageLink = imageLink;
     }
 
-    public int getID() {
-        return id;
+    public String getProductId() {
+        return productId;
     }
 
-    public void setID(int id) {
-        this.id = id;
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
-    public String getProductName() {
-        return productName;
+    public int getProductNumber() {
+        return productNumber;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setProductNumber(int productNumber) {
+        this.productNumber = productNumber;
     }
 
     public String getProductType() {
         return productType;
-    }
+    }   
 
     public void setProductType(String productType) {
         this.productType = productType;
-    }
-    
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public String getColor() {
@@ -93,8 +67,16 @@ public class Product {
         return size;
     }
 
-    public void setSize (int size) {
+    public void setSize(int size) {
         this.size = size;
+    }
+
+    public double getPrice() {
+        return price;
+    }   
+
+    public void setPrice (double price) {
+        this.price = price;
     }
 
     public String getDescription() {
@@ -105,18 +87,11 @@ public class Product {
         this.description = description;
     }
 
-
-    // don't want to do cascadetype.all because if a customer decides 
-    // to add/delete an item from an order, that order should still exist
-    @ManyToMany(mappedBy = "product")
-    // a product can belong to many orders, and an order can have many products
-    private List<Orders> orders = new ArrayList<>();
-
-    public List<Orders> getOrders() {
-        return orders;
+    public String getImageLink() {
+        return imageLink;
     }
 
-    public void setOrders(List<Orders> orders) {
-        this.orders = orders;
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
     }
 }
