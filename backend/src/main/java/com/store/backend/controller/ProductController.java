@@ -48,10 +48,11 @@ public class ProductController {
 
         current.setProductNumber(updated.getProductNumber());
         current.setProductType(updated.getProductType());
-        current.setPrice(updated.getPrice());
         current.setColor(updated.getColor());
         current.setSize(updated.getSize());
+        current.setPrice(updated.getPrice());
         current.setDescription(updated.getDescription());
+        current.setImageLink(updated.getImageLink());
 
         return productService.updateProduct(current);
     }
