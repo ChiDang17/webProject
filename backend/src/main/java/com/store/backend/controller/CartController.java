@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.store.backend.model.Cart;
+import com.store.backend.model.Cart.CartItem;
 import com.store.backend.service.CartService;
 
 @RestController
@@ -29,30 +30,29 @@ public class CartController {
         return cartService.createCart(cart);
     }
 
-    @GetMapping("/{id}")
-    public Cart getCartByID(@PathVariable int id) {
-        return cartService.getCartByID(id);
-    }
+    @PutMapping("/{customerId}")
+    public Cart updateCart(@PathVariable String customerId, @RequestBody Cart updated) {
+        Cart current = cartService.findByCustomerId(customerId);
 
-    @PutMapping("/{id}")
-    public Cart updateCart(@PathVariable int id, @RequestBody Cart updated) {
-        Cart current = cartService.getCartByID(id);
-
-        current.setCustomerID(updated.getCustomerID());
-        current.setProductID(updated.getProductID());
-        current.setQuantity(updated.getQuantity());
+        current.setCustomerId(updated.getCustomerId());
+        current.setItems(updated.getItems());
 
         return cartService.updateCart(current);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteCart(@PathVariable int id) {
-        cartService.deleteCart(id);
+    // custom ones
+     @GetMapping("/items/{customerId}")
+    public List<CartItem> getAllCartItems(@PathVariable String customerId) {
+        return cartService.getAllCartItems(customerId);
     }
 
-    // custom
-    @GetMapping
-    public List<Cart> getAllCartItems(@PathVariable String customerId) {
-        return cartService.getAllCartItems(customerId);
+    @DeleteMapping("/{customerId}")
+    public void deleteByCustomerId(@PathVariable String customerId) {
+        cartService.deleteByCustomerId(customerId);
+    }
+
+    @GetMapping("/find/{customerId}")
+    public Cart findByCustomerId(@PathVariable String customerId) {
+        return cartService.findByCustomerId(customerId);
     }
 }

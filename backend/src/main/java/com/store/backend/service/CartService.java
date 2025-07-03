@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.store.backend.model.Cart;
+import com.store.backend.model.Cart.CartItem;
 import com.store.backend.repository.CartRepository;
 
 @Service
@@ -17,21 +18,22 @@ public class CartService {
         return cartRepository.save(cart);
     }
 
-    public List<Cart> getAllCartItems(String customerId) {
-        return cartRepository.getAllCartItems(customerId);
-    }
-
-    public Cart getCartByID (int id) {
-        return cartRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("invalid id"));
-    }
-
     // works for adding/deleting items from a cart
     public Cart updateCart (Cart cart) {
         return cartRepository.save(cart);
     }
 
-    public void deleteCart (int id) {
-        cartRepository.deleteById(id);
+
+    // custom ones
+    public List<CartItem> getAllCartItems(String customerId) {
+        return cartRepository.getAllCartItems(customerId);
+    }
+
+    public void deleteByCustomerId (String customerId) {
+        cartRepository.deleteByCustomerId(customerId);
+    }
+
+    public Cart findByCustomerId(String customerId) {
+        return cartRepository.findByCustomerId(customerId);
     }
 }
