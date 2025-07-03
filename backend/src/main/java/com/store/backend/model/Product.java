@@ -2,13 +2,10 @@ package com.store.backend.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import jakarta.persistence.Id;
-
 @Document("products")
 public class Product {
-    @Id
+
     private String productId;
-    
     private int productNumber;
     private String productType;
     private String color;
@@ -21,7 +18,8 @@ public class Product {
 
     }
 
-    public Product(int productNumber, String productType, String color, int size, double price, String description, String imageLink) {
+    public Product(String productId, int productNumber, String productType, String color, int size, double price, String description, String imageLink) {
+        this.productId = productId;
         this.productNumber = productNumber;
         this.productType = productType;
         this.color = color;

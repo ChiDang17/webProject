@@ -46,6 +46,7 @@ public class ProductController {
     public Product updateProduct(@PathVariable String productId, @RequestBody Product updated) {
         Product current = productService.getProductByID(productId);
 
+        current.setProductId(updated.getProductId());
         current.setProductNumber(updated.getProductNumber());
         current.setProductType(updated.getProductType());
         current.setColor(updated.getColor());
