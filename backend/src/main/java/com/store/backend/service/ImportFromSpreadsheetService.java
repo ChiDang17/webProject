@@ -34,19 +34,21 @@ public class ImportFromSpreadsheetService {
 
             List<Product> products = new ArrayList<>();
             for (CSVRecord record : records) {
-                Product product = new Product();
-                product.setProductNumber(Integer.parseInt(record.get("productNumber")));
-                product.setProductType(record.get("productType"));
-                product.setColor(record.get("color"));
-                product.setSize(Integer.parseInt(record.get("size")));
-                product.setPrice(Double.parseDouble(record.get("price")));
-                product.setDescription(record.get("description"));
-                product.setImageLink(record.get("imageLink"));
+                String productId = record.get("productId");
+                
+                if (!productRepository.findById(productId).isPresent()) {
+                    Product product = new Product();
+                    product.setProductNumber(Integer.parseInt(record.get("productNumber")));
+                    product.setProductType(record.get("productType"));
+                    product.setColor(record.get("color"));
+                    product.setSize(Integer.parseInt(record.get("size")));
+                    product.setPrice(Double.parseDouble(record.get("price")));
+                    product.setDescription(record.get("description"));
+                    product.setImageLink(record.get("imageLink"));
 
-                products.add(product);
+                    products.add(product);
+                }
             }
-
-            productRepository.deleteAll();
             return productRepository.saveAll(products);
         }
     }
