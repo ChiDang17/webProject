@@ -26,9 +26,9 @@ public class OrdersController {
         return ordersService.createOrder(order);
     }
 
-    @GetMapping("/orders/{id}")
-    public Orders getOrderByID(@PathVariable int id) {
-        return ordersService.getOrderByID(id);
+    @GetMapping("/customer/{customerId}")
+    public Orders getOrderByID(@PathVariable String customerId) {
+        return ordersService.getOrderByID(customerId);
     }
 
     @GetMapping
@@ -36,19 +36,18 @@ public class OrdersController {
         return ordersService.getAllOrders();
     }
 
-    @PutMapping("/orders/{id}")
-    public Orders updateOrder(@PathVariable int id, @RequestBody Orders updated) {
-        Orders current = ordersService.getOrderByID(id);
+    @PutMapping("/orders/{orderId}")
+    public Orders updateOrder(@PathVariable String orderId, @RequestBody Orders updated) {
+        Orders current = ordersService.getOrderByID(orderId);
 
-        current.setCustomerID(updated.getCustomerID());
-        current.setProductID(updated.getProductID());
-        current.setQuantity(updated.getQuantity());
+        current.setCustomerID(updated.getCustomerId());
+        current.setItems(updated.getItems());
 
         return ordersService.updateOrder(current);
     }
 
-    @DeleteMapping("/orders/{id}")
-    public void deleteOrder(@PathVariable int id) {
-        ordersService.deleteOrder(id);
+    @DeleteMapping("/{orderId}")
+    public void deleteOrder(@PathVariable String orderId) {
+        ordersService.deleteOrder(orderId);
     }
 }

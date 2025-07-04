@@ -17,8 +17,8 @@ public class OrdersService {
         return ordersRepository.save(order);
     }
 
-    public Orders getOrderByID(int id) {
-        return ordersRepository.findById(id)
+    public Orders getOrderByID(String customerId) {
+        return ordersRepository.findById(customerId)
             .orElseThrow(() -> new RuntimeException("order id not found"));
     }
 
@@ -31,7 +31,7 @@ public class OrdersService {
     }
 
     // such as when customer cancels order
-    public void deleteOrder(int id) {
-        ordersRepository.deleteById(id);
+    public void deleteOrder(String orderId) {
+        ordersRepository.deleteById(orderId);
     }
 }
