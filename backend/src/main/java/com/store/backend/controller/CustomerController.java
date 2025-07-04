@@ -33,10 +33,10 @@ public class CustomerController {
         return customerService.createCustomer(customer);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{customerId}")
     // use pathvariable to extract the value of id
-    public Customer getCustomersByID(@PathVariable int id) {
-        return customerService.getCustomerByID(id);
+    public Customer getCustomersByID(@PathVariable String customerId) {
+        return customerService.getCustomerByID(customerId);
     }
 
     @GetMapping
@@ -45,9 +45,9 @@ public class CustomerController {
     }
 
     // updates based on whatever the user changes
-    @PutMapping("/{id}")
-    public Customer updateCustomer(@PathVariable int id, @RequestBody Customer updated) {
-        Customer current = customerService.getCustomerByID(id);
+    @PutMapping("/{customerId}")
+    public Customer updateCustomer(@PathVariable String customerId, @RequestBody Customer updated) {
+        Customer current = customerService.getCustomerByID(customerId);
 
         current.setFirstName(updated.getFirstName());
         current.setSurname(updated.getSurname());
@@ -58,19 +58,19 @@ public class CustomerController {
         return customerService.updateCustomer(current);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteCustomer(@PathVariable int id) {
-        customerService.deleteCustomer(id);
+    @DeleteMapping("/{customerId}")
+    public void deleteCustomer(@PathVariable String customerId) {
+        customerService.deleteCustomer(customerId);
     }
 
     // custom ones
     @GetMapping("/email/{email}")
-    public List<Customer> findByEmail(@PathVariable String email) {
+    public Customer findByEmail(@PathVariable String email) {
         return customerService.findByEmail(email);
     }
 
     @GetMapping("/phoneNumber/{phoneNumber}")
-    public List<Customer> findByPhoneNumber(@PathVariable int phoneNumber) {
+    public Customer findByPhoneNumber(@PathVariable int phoneNumber) {
         return customerService.findByPhoneNumber(phoneNumber);
     }
 

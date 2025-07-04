@@ -21,8 +21,8 @@ public class CustomerService {
     }
 
     // finding customer by their unique id, but throws error if the id isn't found
-    public Customer getCustomerByID(int id) {
-        return customerRepository.findById(id)
+    public Customer getCustomerByID(String customerId) {
+        return customerRepository.findById(customerId)
             .orElseThrow(() -> new RuntimeException("invalid id"));
     }
 
@@ -34,16 +34,16 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
 
-    public void deleteCustomer(int id) {
-        customerRepository.deleteById(id);
+    public void deleteCustomer(String customerId) {
+        customerRepository.deleteById(customerId);
     }
 
     // custom ones
-    public List<Customer> findByEmail(String email) {
+    public Customer findByEmail(String email) {
         return customerRepository.findByEmail(email);
     }
 
-    public List<Customer> findByPhoneNumber(int phoneNumber) {
+    public Customer findByPhoneNumber(int phoneNumber) {
         return customerRepository.findByPhoneNumber(phoneNumber);
     }
 }
