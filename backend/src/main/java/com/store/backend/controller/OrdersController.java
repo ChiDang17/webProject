@@ -27,8 +27,8 @@ public class OrdersController {
     }
 
     @GetMapping("/customer/{customerId}")
-    public Orders getOrderByID(@PathVariable String customerId) {
-        return ordersService.getOrderByID(customerId);
+    public Orders getOrderById(@PathVariable String customerId) {
+        return ordersService.getOrderById(customerId);
     }
 
     @GetMapping
@@ -38,9 +38,9 @@ public class OrdersController {
 
     @PutMapping("/orders/{orderId}")
     public Orders updateOrder(@PathVariable String orderId, @RequestBody Orders updated) {
-        Orders current = ordersService.getOrderByID(orderId);
+        Orders current = ordersService.getOrderById(orderId);
 
-        current.setCustomerID(updated.getCustomerId());
+        current.setCustomerId(updated.getCustomerId());
         current.setItems(updated.getItems());
 
         return ordersService.updateOrder(current);

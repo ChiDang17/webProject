@@ -35,8 +35,8 @@ public class CustomerController {
 
     @GetMapping("/{customerId}")
     // use pathvariable to extract the value of id
-    public Customer getCustomersByID(@PathVariable String customerId) {
-        return customerService.getCustomerByID(customerId);
+    public Customer getCustomersById(@PathVariable String customerId) {
+        return customerService.getCustomerById(customerId);
     }
 
     @GetMapping
@@ -47,7 +47,7 @@ public class CustomerController {
     // updates based on whatever the user changes
     @PutMapping("/{customerId}")
     public Customer updateCustomer(@PathVariable String customerId, @RequestBody Customer updated) {
-        Customer current = customerService.getCustomerByID(customerId);
+        Customer current = customerService.getCustomerById(customerId);
 
         current.setFirstName(updated.getFirstName());
         current.setSurname(updated.getSurname());

@@ -42,7 +42,7 @@ public class Orders {
         return customerId;
     }
 
-    public void setCustomerID(String customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 

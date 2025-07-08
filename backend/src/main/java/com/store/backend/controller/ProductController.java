@@ -33,8 +33,8 @@ public class ProductController {
     }
 
     @GetMapping("/{productId}")
-    public Product getProductByID(@PathVariable String productId) {
-        return productService.getProductByID(productId);
+    public Product getProductById(@PathVariable String productId) {
+        return productService.getProductById(productId);
     }
 
     @GetMapping
@@ -44,7 +44,7 @@ public class ProductController {
 
     @PutMapping("/{productId}") 
     public Product updateProduct(@PathVariable String productId, @RequestBody Product updated) {
-        Product current = productService.getProductByID(productId);
+        Product current = productService.getProductById(productId);
 
         current.setProductId(updated.getProductId());
         current.setProductNumber(updated.getProductNumber());

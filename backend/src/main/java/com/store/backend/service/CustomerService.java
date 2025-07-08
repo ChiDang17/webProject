@@ -21,7 +21,7 @@ public class CustomerService {
     }
 
     // finding customer by their unique id, but throws error if the id isn't found
-    public Customer getCustomerByID(String customerId) {
+    public Customer getCustomerById(String customerId) {
         return customerRepository.findById(customerId)
             .orElseThrow(() -> new RuntimeException("invalid id"));
     }

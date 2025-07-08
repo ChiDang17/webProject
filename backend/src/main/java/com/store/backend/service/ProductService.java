@@ -23,7 +23,7 @@ public class ProductService {
         return importFromSpreadsheetService.bulkImport("products.csv");
     }
 
-    public Product getProductByID(String productId) {
+    public Product getProductById(String productId) {
         return productRepository.findById(productId)
             .orElseThrow(() -> new RuntimeException("invalid id"));
     }
