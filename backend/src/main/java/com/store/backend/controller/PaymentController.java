@@ -11,7 +11,7 @@ import com.stripe.model.Charge;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping("/api/payments")
+@RequestMapping("/api/payment")
 public class PaymentController {
     @Autowired
     private PaymentService paymentService;

@@ -2,10 +2,10 @@ import { cartData } from '@/model/Cart';
 
 export const create_cart = async (cartData: any) => {
     try {
-        const response = await fetch(`/api/cart/create-cart`, {
+        const response = await fetch(`/api/cart`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({cartData})
+            body: JSON.stringify(cartData)
         });
         const data = await response.json();
         return data;
@@ -14,21 +14,34 @@ export const create_cart = async (cartData: any) => {
     }
 }
 
-export const get_cart_by_id = async (id: number) => {
+export const delete_by_customer_id = async (customerId: string) => {
     try {
-        const response = await fetch(`/api/cart/view-cart-by-id/${id}`, {
-            method: 'GET',
+        const response = await fetch(`/api/cart/${customerId}`, {
+            method: 'DELETE',
         });
         const data = await response.json();
         return data;
     } catch (error) {
-        console.log('Could not find cart with that ID');
+        console.log('Could not delerte cart by customer ID');
+    }
+}
+
+export const find_by_customer_id = async (customerId: string) => {
+    try {
+        const response = await fetch(`/api/cart/find/${customerId}`, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log('Could not find cart by customer ID');
     }
 }
 
 export const get_all_cart_items = async (customerId: string) => {
     try {
-        const response = await fetch(`/api/cart/get-all-cart-items/${customerId}`, {
+        const response = await fetch(`/api/cart/items/${customerId}`, {
             method: 'GET',
             headers: {'Content-Type': 'application/json'},
         });
@@ -39,9 +52,9 @@ export const get_all_cart_items = async (customerId: string) => {
     }
 }
 
-export const update_cart = async (cartData: any, id: number) => {
+export const update_cart = async (customerId: string, cartData: any) => {
     try {
-        const response = await fetch(`/api/cart/update-cart/${id}`, {
+        const response = await fetch(`/api/cart/${customerId}`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(cartData)
@@ -50,17 +63,5 @@ export const update_cart = async (cartData: any, id: number) => {
         return data;
     } catch (error) {
         console.log('Could not update cart');
-    }
-}
-
-export const delete_cart = async (id: number) => {
-    try {
-        const response = await fetch(`/api/cart/delete-cart/${id}`, {
-            method: 'DELETE'
-        });
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.log('Could not delete cart');
     }
 }

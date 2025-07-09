@@ -2,7 +2,7 @@ import { productData } from '@/model/Product';
 
 export const create_product = async (productData: any) => {
     try {
-        const response = await fetch(`/api/product/create-product`, {
+        const response = await fetch(`/api/product`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(productData)
@@ -14,32 +14,9 @@ export const create_product = async (productData: any) => {
     }
 }
 
-export const delete_product = async (id: number) => {
+export const get_product_by_id = async (productId: string) => {
     try {
-        const response = await fetch(`/api/product/delete-product/${id}`, {
-            method: 'DELETE'
-        });
-    } catch (error) {
-        console.log('Could not delete product')
-    }
-}
-
-export const get_product_by_category = async (category: string) => {
-    try {
-        const response = await fetch(`/api/product/get-product-by-category/${category}`, {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'}
-        });
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.log('Could not return products by category')
-    }
-}
-
-export const get_product_by_id = async (id: number) => {
-    try {
-        const response = await fetch(`/api/product/get-product-by-id/${id}`, {
+        const response = await fetch(`/api/product/${productId}`, {
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         });
@@ -47,32 +24,6 @@ export const get_product_by_id = async (id: number) => {
         return data;
     } catch (error) {
         console.log('Could not return product by id')
-    }
-}
-
-export const get_product_by_color = async (color: string) => {
-    try {
-        const response = await fetch(`/api/product/get-product-by-color/${color}`, {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'}
-        });
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.log('Could not return products by color')
-    }
-}
-
-export const get_product_by_size = async (size: number) => {
-    try {
-        const response = await fetch(`/api/product/get-product-by-size/${size}`, {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'}
-        });
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.log('Could not return products by size')
     }
 }
 
@@ -89,9 +40,9 @@ export const get_all_products = async () => {
     }
 }
 
-export const update_product = async (productData: any, id: number) => {
+export const update_product = async (productData: any, productId: string) => {
     try {
-        const response = await fetch(`/api/product/update-product/${id}`, {
+        const response = await fetch(`/api/product/${productId}`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(productData)
@@ -102,3 +53,53 @@ export const update_product = async (productData: any, id: number) => {
         console.log('Could not update product')
     }
 }
+
+export const delete_product = async (productId: string) => {
+    try {
+        const response = await fetch(`/api/product/delete-product/${productId}`, {
+            method: 'DELETE'
+        });
+    } catch (error) {
+        console.log('Could not delete product')
+    }
+}
+
+export const find_by_color = async (color: string) => {
+    try {
+        const response = await fetch(`/api/product/color/${color}`, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'}
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log('Could not return products by color')
+    }
+}
+
+export const find_by_size = async (size: number) => {
+    try {
+        const response = await fetch(`/api/product/size/${size}`, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'}
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log('Could not return products by size')
+    }
+}
+
+export const find_by_product_type = async (productType: string) => {
+    try {
+        const response = await fetch(`/api/product/productType/${productType}`, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'}
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log('Could not return products by product type')
+    }
+}
+

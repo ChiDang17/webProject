@@ -36,7 +36,7 @@ public class OrdersController {
         return ordersService.getAllOrders();
     }
 
-    @PutMapping("/orders/{orderId}")
+    @PutMapping("/{orderId}")
     public Orders updateOrder(@PathVariable String orderId, @RequestBody Orders updated) {
         Orders current = ordersService.getOrderById(orderId);
 

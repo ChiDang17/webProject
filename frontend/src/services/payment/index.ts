@@ -1,6 +1,6 @@
 export const charge_new_card = async (token: string, amount: number) => {
     try {
-        const response = await fetch(`/api/payment/charge-new-card`, {
+        const response = await fetch(`/api/payment/charge`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
         });
@@ -14,7 +14,7 @@ export const charge_new_card = async (token: string, amount: number) => {
 // for returning customers who already have a card saved
 export const charge_customer_card = async (customerId: string, amount: number) => {
     try {
-        const response = await fetch(`/api/payment/charge-customer-card`, {
+        const response = await fetch(`/api/payment/charge`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
         });
