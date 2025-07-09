@@ -1,9 +1,10 @@
 export interface productData {
-    id?: number;
-    productName: string;
+    productId?: string;
+    productNumber: number;
     productType: string;
-    price: number;
     color: string;
     size: number;
+    price: number;
     description: string;
+    imageLink: string;
 }

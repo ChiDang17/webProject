@@ -1,7 +1,9 @@
 export interface orderData {
-    id?: number;
+    orderId?: string;
     customerId: string;
-    productId: number;
+    items: {
+        productId: string;
+        quantity: number;
+    }[];
     orderDate: string;
-    quantity: number;
 }

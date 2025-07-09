@@ -1,5 +1,5 @@
 export interface customerData {
-    id?: number; // going to be automatically generated; customer isn't creating it themselves
+    customerId?: string; // going to be automatically generated; customer isn't creating it themselves
     firstName: string;
     surname: string;
     email: string;
