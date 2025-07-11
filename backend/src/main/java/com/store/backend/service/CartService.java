@@ -23,7 +23,6 @@ public class CartService {
         return cartRepository.save(cart);
     }
 
-
     // custom ones
     public List<CartItem> getAllCartItems(String customerId) {
         return cartRepository.getAllCartItems(customerId);
