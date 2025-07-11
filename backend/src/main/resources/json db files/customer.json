@@ -1,0 +1,18 @@
+[
+    {
+        "customerId": "example customer 1",
+        "firstName": "Charlie",
+        "surname": "Brown",
+        "email": "cbrown@gmail.com",
+        "address": "123 street",
+        "phoneNumber": "1234567890"
+    },
+    {
+        "customerId": "example customer 2",
+        "firstName": "Lucy",
+        "surname": "Van Pelt",
+        "email": "lvanpelt@gmail.com",
+        "address": "456 street",
+        "phoneNumber": "0987654321"    
+    }
+]

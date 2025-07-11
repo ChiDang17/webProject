@@ -1,0 +1,26 @@
+[
+    {
+        "customerId": "example customer 1",
+        "cartItems": [
+            {
+                "productId": "123",
+                "quantity": "1"
+            },
+            {
+                "productId": "456",
+                "quantity": "2"
+            }
+        ],
+        "orderDate": "2025-07-10T12:30"
+    },
+    {
+        "customerId": "example customer 2",
+        "cartItems": [
+            {
+                "productId": "789",
+                "quantity": "3"
+            }
+        ],
+        "orderDate": "2025-07-05T15:30"
+    }
+]

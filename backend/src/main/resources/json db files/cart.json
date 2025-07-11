@@ -1,0 +1,24 @@
+[
+    {
+        "customerId": "example customer 1",
+        "cartItems": [
+            {
+                "productId": "123",
+                "quantity": "1"
+            },
+            {
+                "productId": "456",
+                "quantity": "2"
+            }
+        ]
+    },
+    {
+        "customerId": "example customer 2",
+        "cartItems": [
+            {
+                "productId": "789",
+                "quantity": "3"
+            }
+        ]
+    }
+]

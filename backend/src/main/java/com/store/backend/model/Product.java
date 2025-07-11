@@ -2,7 +2,7 @@ package com.store.backend.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("products")
+@Document("product")
 public class Product {
 
     private String productId;
