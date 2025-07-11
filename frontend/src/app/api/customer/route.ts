@@ -15,5 +15,5 @@ export async function POST(req: Request) {
 // getAllCustomers
 export async function GET(req: Request) {
     const data = await fetch(`http://localhost:8080/api/customer`);
-    return Response.json(data.json());
+    return Response.json(data);
 }

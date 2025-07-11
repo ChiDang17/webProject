@@ -17,5 +17,5 @@ export async function PUT(req: Request) {
 // getAllProducts
 export async function GET(req: Request) {
     const data = await fetch(`http://localhost:8080/api/product`);
-    return Response.json(data.json());
+    return Response.json(data);
 }

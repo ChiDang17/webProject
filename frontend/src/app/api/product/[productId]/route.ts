@@ -2,7 +2,7 @@
 export async function GET(req: Request, {params}: {params: {productId: string} }) {
     const productId = params.productId;
     const data = await fetch(`https://localhost:8080/api/product/${productId}`);
-    return Response.json(data.json());
+    return Response.json(data);
 }
 
 // updateProduct
