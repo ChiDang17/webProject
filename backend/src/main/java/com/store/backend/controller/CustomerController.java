@@ -70,7 +70,7 @@ public class CustomerController {
     }
 
     @GetMapping("/phoneNumber/{phoneNumber}")
-    public Customer findByPhoneNumber(@PathVariable int phoneNumber) {
+    public Customer findByPhoneNumber(@PathVariable String phoneNumber) {
         return customerService.findByPhoneNumber(phoneNumber);
     }
 

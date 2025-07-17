@@ -1,6 +1,6 @@
 [
     {
-        "customerId": "example customer 1",
+        "customerId": "1",
         "cartItems": [
             {
                 "productId": "123",
@@ -14,7 +14,7 @@
         "orderDate": "2025-07-10T12:30"
     },
     {
-        "customerId": "example customer 2",
+        "customerId": "2",
         "cartItems": [
             {
                 "productId": "789",

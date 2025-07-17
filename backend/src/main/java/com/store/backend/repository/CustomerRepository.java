@@ -13,5 +13,5 @@ public interface CustomerRepository extends MongoRepository<Customer, String> {
         // U: save()
         // D: deleteByID(ID id), delete(T entity), deleteAll(), deleteAll(Iterable<? extends T> entities)
         Customer findByEmail (String email);
-        Customer findByPhoneNumber (int phoneNumber);
+        Customer findByPhoneNumber (String phoneNumber);
 }

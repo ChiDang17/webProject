@@ -1,7 +1,5 @@
 package com.store.backend.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.store.backend.model.Cart;
-import com.store.backend.model.Cart.CartItem;
 import com.store.backend.service.CartService;
 
 @RestController
@@ -38,12 +35,6 @@ public class CartController {
         current.setItems(updated.getItems());
 
         return cartService.updateCart(current);
-    }
-
-    // custom ones
-     @GetMapping("/items/{customerId}")
-    public List<CartItem> getAllCartItems(@PathVariable String customerId) {
-        return cartService.getAllCartItems(customerId);
     }
 
     @DeleteMapping("/{customerId}")

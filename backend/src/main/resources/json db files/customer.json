@@ -1,6 +1,6 @@
 [
     {
-        "customerId": "example customer 1",
+        "customerId": "1",
         "firstName": "Charlie",
         "surname": "Brown",
         "email": "cbrown@gmail.com",
@@ -8,7 +8,7 @@
         "phoneNumber": "1234567890"
     },
     {
-        "customerId": "example customer 2",
+        "customerId": "2",
         "firstName": "Lucy",
         "surname": "Van Pelt",
         "email": "lvanpelt@gmail.com",

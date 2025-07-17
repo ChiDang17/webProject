@@ -1,25 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import { productData } from '@/model/Product';
 
-const CategoriesBar = () => {
-    const [products, setProducts] = useState<productData[]>([]); // need to fetch all the products to get the types
-    const [productTypes, setProductTypes] = useState<string[]>([]);
-    const [selectedType, setSelectedType] = useState<string>('All'); // what user selected
+export const CategoriesBar = () => {
+    const [allProducts, setAllProducts] = useState<productData[]>([]);
+    const [productType, setProductType] = useState<string[]>([]);
 
     useEffect(() => {
-        async function fetchProductTypes() {
-            const response = await fetch('/api/products');
-            const data = await response.json();
-            setSelectedType(data.productType);
+        async function getProducts() {
+            const res = await fetch(`/api/product`);
+            const data = await res.json();
+            setAllProducts(data);
+            const types = data.map((product: productData) => product.productType); // get productType from products
+            setProductType(Array.from(new Set(types))); // make sure we only have unique product types since set has no duplicates
         }
-        fetchProductTypes();
-    })
+        getProducts();
+    }, []);
 
     return (
-        <div className='categories-bar'>
-            <ul className='categories-list'>
-            
-            </ul>
+        <div style={{display:'inline-block'}}>
+            <div className='categories-bar'>
+                {productType.map((type, index) => (
+                    <button key={index} className='category-button'>
+                        {type}
+                    </button>
+                ))}
+            </div>
         </div>
+        
     )
 }

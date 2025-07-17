@@ -43,7 +43,7 @@ public class CustomerService {
         return customerRepository.findByEmail(email);
     }
 
-    public Customer findByPhoneNumber(int phoneNumber) {
+    public Customer findByPhoneNumber(String phoneNumber) {
         return customerRepository.findByPhoneNumber(phoneNumber);
     }
 }

@@ -1,8 +1,7 @@
 package com.store.backend.model;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("customer")
 public class Customer {
@@ -13,13 +12,13 @@ public class Customer {
     private String surname;
     private String email;
     private String address;
-    private int phoneNumber;
+    private String phoneNumber;
 
     public Customer() {
 
     }
 
-    public Customer(String firstName, String surname, String email, String address, int phoneNumber) {
+    public Customer(String firstName, String surname, String email, String address, String phoneNumber) {
         this.firstName = firstName;
         this.surname = surname;
         this.email = email;
@@ -68,11 +67,11 @@ public class Customer {
         this.address = address;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     } 
 
-    public void setPhoneNumber (int phoneNumber) {
+    public void setPhoneNumber (String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }
