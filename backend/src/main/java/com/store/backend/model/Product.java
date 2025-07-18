@@ -1,12 +1,13 @@
 package com.store.backend.model;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document("product")
 public class Product {
 
-    @Field("_id")
+    @Id
     private String productId;
     @Field("productNumber")
     private int productNumber;

@@ -3,11 +3,14 @@ package com.store.backend.model;
 import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document("cart")
 public class Cart {
 
+    @Field("customerId")
     private String customerId;
+    @Field("items")
     private List<CartItem> items;
 
     public static class CartItem {

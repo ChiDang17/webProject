@@ -22,7 +22,7 @@ axios
 
 // getProductById (GET)
 axios
-    .get<productData>("http://localhost:8080/api/product/68705ad99a8f5bec5795a141")
+    .get<productData>("http://localhost:8080/api/product/68799a419a8f5bec5795a187")
     .then((response) => {
         console.log(response.data)
     })
@@ -81,7 +81,7 @@ const updatedProduct = {
     "imageLink": "www.example.com"
 }
 axios
-    .put<productData>("http://localhost:8080/api/product/68705ad99a8f5bec5795a141", updatedProduct)
+    .put<productData>("http://localhost:8080/api/product/68799a419a8f5bec5795a187", updatedProduct)
     .then((response) => {
         console.log(response.data)
     })
@@ -91,7 +91,7 @@ axios
 
 // deleteProduct (DELETE)
 axios
-    .delete("http://localhost:8080/api/product/68705ad99a8f5bec5795a141")
+    .delete("http://localhost:8080/api/product/68799a419a8f5bec5795a187")
     .then((response) => {
         console.log(response.data)
     })

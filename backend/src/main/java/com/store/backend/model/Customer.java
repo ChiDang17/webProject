@@ -2,16 +2,22 @@ package com.store.backend.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document("customer")
 public class Customer {
     @Id
     private String customerId;
 
+    @Field("firstName")
     private String firstName;
+    @Field("surname")
     private String surname;
+    @Field("email")
     private String email;
+    @Field("address")
     private String address;
+    @Field("phoneNumber")
     private String phoneNumber;
 
     public Customer() {

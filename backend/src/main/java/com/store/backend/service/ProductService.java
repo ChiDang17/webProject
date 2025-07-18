@@ -10,17 +10,24 @@ import com.store.backend.repository.ProductRepository;
 
 @Service
 public class ProductService {
-    private final ProductRepository productRepository;
-    private final ImportFromSpreadsheetService importFromSpreadsheetService;
+    // private final ProductRepository productRepository;
+    // private final ImportFromSpreadsheetService importFromSpreadsheetService;
+
+    // @Autowired
+    // public ProductService(ProductRepository productRepository, ImportFromSpreadsheetService importFromSpreadsheetService) {
+    //     this.productRepository = productRepository;
+    //     this.importFromSpreadsheetService = importFromSpreadsheetService;
+    // }
+
+    // public List<Product> createProduct() throws Exception {
+    //     return importFromSpreadsheetService.bulkImport("products.csv");
+    // }
 
     @Autowired
-    public ProductService(ProductRepository productRepository, ImportFromSpreadsheetService importFromSpreadsheetService) {
-        this.productRepository = productRepository;
-        this.importFromSpreadsheetService = importFromSpreadsheetService;
-    }
+    private ProductRepository productRepository;
 
-    public List<Product> createProduct() throws Exception {
-        return importFromSpreadsheetService.bulkImport("products.csv");
+    public Product createProduct(Product product) {
+        return productRepository.save(product);
     }
 
     public Product getProductById(String productId) {

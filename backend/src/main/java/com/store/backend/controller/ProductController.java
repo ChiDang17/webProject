@@ -3,7 +3,6 @@ package com.store.backend.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,14 +21,19 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    // @PostMapping
+    // public ResponseEntity<List<Product>> createProduct() {
+    //     try {
+    //         List<Product> products = productService.createProduct();
+    //         return ResponseEntity.ok(products);
+    //     } catch (Exception e) {
+    //         return ResponseEntity.status(500).body(null);
+    //     }
+    // }
+
     @PostMapping
-    public ResponseEntity<List<Product>> createProduct() {
-        try {
-            List<Product> products = productService.createProduct();
-            return ResponseEntity.ok(products);
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body(null);
-        }
+    public Product createProduct(@RequestBody Product product) {
+        return productService.createProduct(product);
     }
 
     @GetMapping("/{productId}")
@@ -46,7 +50,6 @@ public class ProductController {
     public Product updateProduct(@PathVariable String productId, @RequestBody Product updated) {
         Product current = productService.getProductById(productId);
 
-        current.setProductId(updated.getProductId());
         current.setProductNumber(updated.getProductNumber());
         current.setProductType(updated.getProductType());
         current.setColor(updated.getColor());
