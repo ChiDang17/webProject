@@ -1,6 +1,6 @@
 export interface cartData {
     customerId: string;
-    cartItems: {
+    items: {
         productId: string;
         quantity: number;
     }[];

@@ -1,24 +1,24 @@
 [
     {
         "customerId": "1",
-        "cartItems": [
+        "items": [
             {
                 "productId": "123",
                 "quantity": "1"
             },
             {
                 "productId": "456",
-                "quantity": "2"
+                "quantity": 2
             }
         ],
         "orderDate": "2025-07-10T12:30"
     },
     {
         "customerId": "2",
-        "cartItems": [
+        "items": [
             {
                 "productId": "789",
-                "quantity": "3"
+                "quantity": 3
             }
         ],
         "orderDate": "2025-07-05T15:30"

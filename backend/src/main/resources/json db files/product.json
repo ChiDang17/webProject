@@ -1,20 +1,20 @@
 [
     {
-        "productnumber": 1,
-        "producttype": "ring",
+        "productNumber": 1,
+        "productType": "ring",
         "color": "gold",
         "size": 5,
         "price": 10,
         "description": "size 5 gold ring",
-        "imagelink": "www.example.com"
+        "imageLink": "www.example.com"
     },
     {
-        "productnumber": 2,
-        "producttype": "necklace",
+        "productNumber": 2,
+        "productType": "necklace",
         "color": "silver",
         "size": 16,
         "price": 15,
         "description": "16 inch silver necklace",
-        "imagelink": "www.example.com"
+        "imageLink": "www.example.com"
     }
 ]

@@ -1,10 +1,10 @@
 [
     {
         "customerId": "1",
-        "cartItems": [
+        "items": [
             {
                 "productId": "123",
-                "quantity": "1"
+                "quantity": 1
             },
             {
                 "productId": "456",
@@ -14,10 +14,10 @@
     },
     {
         "customerId": "2",
-        "cartItems": [
+        "items": [
             {
                 "productId": "789",
-                "quantity": "3"
+                "quantity": 3
             }
         ]
     }

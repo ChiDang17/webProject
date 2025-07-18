@@ -6,14 +6,14 @@ import { orderData } from "@/model/Orders";
 axios
     .post<orderData>("http://localhost:8080/api/orders", {
         "customerId": "1",
-        "cartItems": [
+        "items": [
             {
                 "productId": "123",
-                "quantity": "1"
+                "quantity": 1
             },
             {
                 "productId": "456",
-                "quantity": "2"
+                "quantity": 2
             }
         ],
         "orderDate": "2025-07-10T12:30"
@@ -25,9 +25,19 @@ axios
         console.error(error)
     })
 
-// getOrderById (GET)
+// findByCustomerId (GET)
 axios
     .get<orderData>("http://localhost:8080/api/orders/customer/1")
+    .then((response) => {
+        console.log(response.data)
+    })
+    .catch((error) => {
+        console.error(error)
+    })
+
+// getOrderById
+axios
+    .get<orderData>("http://localhost:8080/api/orders/orderId/68705ae09a8f5bec5795a144")
     .then((response) => {
         console.log(response.data)
     })
@@ -48,14 +58,14 @@ axios
 // updateOrder (PUT)
 const updatedOrder = {
     "customerId": "1",
-        "cartItems": [
+        "items": [
             {
                 "productId": "123",
-                "quantity": "2"
+                "quantity": 2
             },
             {
                 "productId": "456",
-                "quantity": "2"
+                "quantity": 2
             }
         ],
         "orderDate": "2025-07-10T12:30"

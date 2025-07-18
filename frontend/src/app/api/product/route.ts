@@ -32,7 +32,7 @@ axios
 
 // getAllProducts (GET)
 axios
-    .get<productData>("http://localhost:8080/api/product}")
+    .get<productData>("http://localhost:8080/api/product")
     .then((response) => {
         console.log(response.data)
     })
@@ -91,7 +91,7 @@ axios
 
 // deleteProduct (DELETE)
 axios
-    .delete("http://localhost:8080/api/product/productId=68705ad99a8f5bec5795a141")
+    .delete("http://localhost:8080/api/product/68705ad99a8f5bec5795a141")
     .then((response) => {
         console.log(response.data)
     })

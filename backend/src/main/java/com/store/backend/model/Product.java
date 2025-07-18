@@ -1,17 +1,26 @@
 package com.store.backend.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document("product")
 public class Product {
 
+    @Field("_id")
     private String productId;
+    @Field("productNumber")
     private int productNumber;
+    @Field("productType")
     private String productType;
+    @Field("color")
     private String color;
+    @Field("size")
     private int size;
+    @Field("price")
     private double price;
+    @Field("description")
     private String description;
+    @Field("imageLink")
     private String imageLink;
 
     public Product() {

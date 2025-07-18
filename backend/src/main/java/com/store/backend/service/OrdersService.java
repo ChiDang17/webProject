@@ -17,9 +17,13 @@ public class OrdersService {
         return ordersRepository.save(order);
     }
 
-    public Orders getOrderById(String customerId) {
-        return ordersRepository.findById(customerId)
-            .orElseThrow(() -> new RuntimeException("order id not found"));
+    public List<Orders> findByCustomerId(String customerId) {
+        return ordersRepository.findByCustomerId(customerId);
+    }
+
+    public Orders getOrderById(String orderId) {
+        return ordersRepository.findById(orderId)
+            .orElseThrow(() -> new RuntimeException("order not found"));
     }
 
     public List<Orders> getAllOrders() {
