@@ -1,17 +1,15 @@
-import React, { use, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { productData } from '@/model/Product';
 
 export const CategoriesBar = () => {
-    const [allProducts, setAllProducts] = useState<productData[]>([]);
     const [productType, setProductType] = useState<string[]>([]);
 
     useEffect(() => {
         async function getProducts() {
             const res = await fetch(`/api/product`);
             const data = await res.json();
-            setAllProducts(data);
-            const types = data.map((product: productData) => product.productType); // get productType from products
-            setProductType(Array.from(new Set(types))); // make sure we only have unique product types since set has no duplicates
+            const types = data.map((product: productData) => product.productType); // get the productType from the products
+            setProductType(Array.from(new Set(types))); // use set because we only want the unique product types (no duplicates)
         }
         getProducts();
     }, []);

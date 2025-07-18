@@ -2,7 +2,7 @@ import { customerData } from '@/model/Customer';
 
 // email, id, phone, update
 
-export const create_customer = async (customerData: any) => {
+export const create_customer = async (customerData: customerData) => {
     try {
         const response = await fetch(`/api/customer`, {
             method: 'POST',
@@ -11,8 +11,8 @@ export const create_customer = async (customerData: any) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not create new customer')
+    } catch {
+        console.error('Could not create new customer')
     }
 }
 
@@ -23,8 +23,8 @@ export const get_customer_by_id = async (customerId: string) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not get customer by ID')
+    } catch {
+        console.error('Could not get customer by ID')
     }
 }
 
@@ -36,12 +36,12 @@ export const get_all_customers = async () => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not return all customers')
+    } catch {
+        console.error('Could not return all customers')
     }
 }
 
-export const update_customer = async (customerData: any, customerId: string) => {
+export const update_customer = async (customerData: customerData, customerId: string) => {
     try {
         const response = await fetch(`/api/customer/${customerId}`, {
             method: 'PUT',
@@ -50,8 +50,8 @@ export const update_customer = async (customerData: any, customerId: string) => 
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not update customer')
+    } catch {
+        console.error('Could not update customer')
     }
 }
 
@@ -63,8 +63,8 @@ export const delete_customer = async (customerId: string) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not delete customer')
+    } catch {
+        console.error('Could not delete customer')
     }
 }
 
@@ -76,12 +76,12 @@ export const find_by_email = async (email: string) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not return customer by email')
+    } catch {
+        console.error('Could not return customer by email')
     }
 }
 
-export const find_by_phone_number = async (phoneNumber: number) => {
+export const find_by_phone_number = async (phoneNumber: string) => {
     try {
         const response = await fetch(`/api/customer/phoneNumber/${phoneNumber}`, {
             method: 'GET',
@@ -89,7 +89,7 @@ export const find_by_phone_number = async (phoneNumber: number) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not return customer by phone numnber')
+    } catch {
+        console.error('Could not return customer by phone numnber')
     }
 }

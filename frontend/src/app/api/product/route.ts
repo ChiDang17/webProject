@@ -1,9 +1,10 @@
 import axios from "axios";
+import { productData } from "@/model/Product";
 
 
 // createProduct (POST)
 axios
-    .post("http://localhost:8080/api/product", {
+    .post<productData>("http://localhost:8080/api/product", {
         "productNumber": 1,
         "productType": "ring",
         "color": "gold",
@@ -12,60 +13,60 @@ axios
         "description": "size 5 gold ring",
         "imageLink": "www.example.com"
     }) 
-    .then((response: { data: any; }) => {
+    .then((response) => {
         console.log(response.data)
     })
-    .catch((error: any) => {
+    .catch((error) => {
         console.error(error)
     })
 
 // getProductById (GET)
 axios
-    .get("http://localhost:8080/api/product/68705ad99a8f5bec5795a141")
-    .then((response: { data: any; }) => {
+    .get<productData>("http://localhost:8080/api/product/68705ad99a8f5bec5795a141")
+    .then((response) => {
         console.log(response.data)
     })
-    .catch((error: any) => {
+    .catch((error) => {
         console.error(error)
     })
 
 // getAllProducts (GET)
 axios
-    .get("http://localhost:8080/api/product}")
-    .then((response: { data: any; }) => {
+    .get<productData>("http://localhost:8080/api/product}")
+    .then((response) => {
         console.log(response.data)
     })
-    .catch((error: any) => {
+    .catch((error) => {
         console.error(error)
     })
 
 // findByColor (GET)
 axios
-    .get("http://localhost:8080/api/product/color/gold")
-    .then((response: { data: any; }) => {
+    .get<productData>("http://localhost:8080/api/product/color/gold")
+    .then((response) => {
         console.log(response.data)
     })
-    .catch((error: any) => {
+    .catch((error) => {
         console.error(error)
     })
 
 // findByProductType (GET)
 axios
-    .get("http://localhost:8080/api/product/productType/ring")
-    .then((response: { data: any; }) => {
+    .get<productData>("http://localhost:8080/api/product/productType/ring")
+    .then((response) => {
         console.log(response.data)
     })
-    .catch((error: any) => {
+    .catch((error) => {
         console.error(error)
     })
 
 // findBySize (GET)
 axios
-    .get("http://localhost:8080/api/product/size/5")
-    .then((response: { data: any; }) => {
+    .get<productData>("http://localhost:8080/api/product/size/5")
+    .then((response) => {
         console.log(response.data)
     })
-    .catch((error: any) => {
+    .catch((error) => {
         console.error(error)
     })
 
@@ -80,20 +81,20 @@ const updatedProduct = {
     "imageLink": "www.example.com"
 }
 axios
-    .put("http://localhost:8080/api/product/68705ad99a8f5bec5795a141", updatedProduct)
-    .then((response: { data: any; }) => {
+    .put<productData>("http://localhost:8080/api/product/68705ad99a8f5bec5795a141", updatedProduct)
+    .then((response) => {
         console.log(response.data)
     })
-    .catch((error: any) => {
+    .catch((error) => {
         console.error(error)
     })
 
 // deleteProduct (DELETE)
 axios
     .delete("http://localhost:8080/api/product/productId=68705ad99a8f5bec5795a141")
-    .then((response: { data: any; }) => {
+    .then((response) => {
         console.log(response.data)
     })
-    .catch((error: any) => {
+    .catch((error) => {
         console.error(error)
     })

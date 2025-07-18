@@ -16,8 +16,7 @@ export const HeaderBar = () => {
                     src="frontend/public/images/logo.png"
                     alt="logo"
                     onClick={() => router.push("/homepage")}
-                >
-                </img>x
+                />
             </div>
 
             <div className="search-bar">

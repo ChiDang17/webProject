@@ -1,9 +1,9 @@
 import axios from "axios";
-
+import { cartData } from "@/model/Cart";    
 
 // createCart (POST)
 axios
-    .post("http://localhost:8080/api/cart", {
+    .post<cartData>("http://localhost:8080/api/cart", {
         customerId: '1',
         items: [
             {
@@ -12,20 +12,20 @@ axios
             }
         ]
     })
-    .then((response: { data: any; }) => {
+    .then((response) => {
         console.log(response.data)
     })
-    .catch((error: any) => {
+    .catch((error) => {
         console.error(error)
     })
 
 // findByCustomerId (GET)
 axios
-    .get("http://localhost:8080/api/cart/find/1")
-    .then((response: { data: any; }) => {
+    .get<cartData>("http://localhost:8080/api/cart/find/1")
+    .then((response) => {
         console.log(response.data)
     })
-    .catch((error: any) => {
+    .catch((error) => {
         console.error(error)
     })
 
@@ -40,11 +40,11 @@ const updatedCart = {
     ]
 }
 axios
-    .put("http://localhost:8080/api/cart/1", updatedCart)
-    .then((response: { data: any; }) => {
+    .put<cartData>("http://localhost:8080/api/cart/1", updatedCart)
+    .then((response) => {
         console.log(response.data)
     })
-    .catch((error: any) => {
+    .catch((error) => {
         console.error(error)
     })
 
@@ -52,9 +52,9 @@ axios
 // deleteByCustomerId (DELETE)
 axios   
     .delete("http://localhost:8080/api/cart/1")
-    .then((response: { data: any; }) => {
+    .then((response) => {
         console.log(response.data)
     })
-    .catch((error: any) => {
+    .catch((error) => {
         console.error(error)
     })

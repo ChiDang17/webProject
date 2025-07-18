@@ -1,6 +1,6 @@
 import { orderData } from '@/model/Orders';
 
-export const create_order = async (orderData: any) => {
+export const create_order = async (orderData: orderData) => {
     try {
         const response = await fetch(`/api/orders/create-order`, {
             method: 'POST',
@@ -9,8 +9,8 @@ export const create_order = async (orderData: any) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not craete new order')
+    } catch {
+        console.error('Could not craete new order')
     }
 }
 
@@ -21,8 +21,8 @@ export const get_order_by_id = async (customerId: string) => {
         })
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not find order with that ID')
+    } catch {
+        console.error('Could not find order with that ID')
     }
 } 
 
@@ -34,12 +34,12 @@ export const get_all_orders = async () => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not return all orders')
+    } catch {
+        console.error('Could not return all orders')
     }
 }
 
-export const update_order = async (orderData: any, orderId: string) => {
+export const update_order = async (orderData: orderData, orderId: string) => {
     try {
         const response = await fetch(`/api/orders/${orderId}`, {
             method: 'PUT',
@@ -48,8 +48,8 @@ export const update_order = async (orderData: any, orderId: string) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not update order')
+    } catch {
+        console.error('Could not update order')
     }
 }
 
@@ -58,7 +58,9 @@ export const delete_order = async (orderId: string) => {
         const response = await fetch(`/api/orders/${orderId}`, {
             method: 'DELETE'
         });
-    } catch (error) {
-        console.log('Could not delete order')
+        const data = await response.json();
+        return data;
+    } catch {
+        console.error('Could not delete order')
     }
 }

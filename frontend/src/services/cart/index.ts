@@ -1,6 +1,6 @@
 import { cartData } from '@/model/Cart';
 
-export const create_cart = async (cartData: any) => {
+export const create_cart = async (cartData: cartData) => {
     try {
         const response = await fetch(`/api/cart`, {
             method: 'POST',
@@ -9,8 +9,8 @@ export const create_cart = async (cartData: any) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not create new cart');
+    } catch {
+        console.error('Could not create new cart');
     }
 }
 
@@ -21,8 +21,8 @@ export const delete_by_customer_id = async (customerId: string) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not delerte cart by customer ID');
+    } catch {
+        console.error('Could not delerte cart by customer ID');
     }
 }
 
@@ -34,8 +34,8 @@ export const find_by_customer_id = async (customerId: string) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not find cart by customer ID');
+    } catch {
+        console.error('Could not find cart by customer ID');
     }
 }
 
@@ -47,12 +47,12 @@ export const get_all_cart_items = async (customerId: string) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not return all cart items');
+    } catch {
+        console.error('Could not return all cart items');
     }
 }
 
-export const update_cart = async (customerId: string, cartData: any) => {
+export const update_cart = async (customerId: string, cartData: cartData) => {
     try {
         const response = await fetch(`/api/cart/${customerId}`, {
             method: 'PUT',
@@ -61,7 +61,7 @@ export const update_cart = async (customerId: string, cartData: any) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not update cart');
+    } catch {
+        console.error('Could not update cart');
     }
 }

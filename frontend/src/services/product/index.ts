@@ -1,6 +1,6 @@
 import { productData } from '@/model/Product';
 
-export const create_product = async (productData: any) => {
+export const create_product = async (productData: productData) => {
     try {
         const response = await fetch(`/api/product`, {
             method: 'POST',
@@ -9,21 +9,21 @@ export const create_product = async (productData: any) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not create product')
+    } catch {
+        console.error('Could not create product')
     }
 }
 
-export const get_product_by_id = async (productId: string) => {
+export const get_product_by_id = async (productData: productData) => {
     try {
-        const response = await fetch(`/api/product/${productId}`, {
+        const response = await fetch(`/api/product/${productData}`, {
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not return product by id')
+    } catch {
+        console.error('Could not return product by id')
     }
 }
 
@@ -35,12 +35,12 @@ export const get_all_products = async () => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not return all products')
+    } catch {
+        console.error('Could not return all products')
     }
 }
 
-export const update_product = async (productData: any, productId: string) => {
+export const update_product = async (productData: productData, productId: string) => {
     try {
         const response = await fetch(`/api/product/${productId}`, {
             method: 'PUT',
@@ -49,8 +49,8 @@ export const update_product = async (productData: any, productId: string) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not update product')
+    } catch {
+        console.error('Could not update product')
     }
 }
 
@@ -59,8 +59,10 @@ export const delete_product = async (productId: string) => {
         const response = await fetch(`/api/product/delete-product/${productId}`, {
             method: 'DELETE'
         });
-    } catch (error) {
-        console.log('Could not delete product')
+        const data = await response.json();
+        return data;
+    } catch {
+        console.error('Could not delete product')
     }
 }
 
@@ -72,8 +74,8 @@ export const find_by_color = async (color: string) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not return products by color')
+    } catch {
+        console.error('Could not return products by color')
     }
 }
 
@@ -85,8 +87,8 @@ export const find_by_size = async (size: number) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not return products by size')
+    } catch {
+        console.error('Could not return products by size')
     }
 }
 
@@ -98,8 +100,8 @@ export const find_by_product_type = async (productType: string) => {
         });
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.log('Could not return products by product type')
+    } catch {
+        console.error('Could not return products by product type')
     }
 }
 
