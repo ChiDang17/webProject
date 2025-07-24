@@ -1,14 +1,19 @@
+import { CategoriesBar } from "@/components/CategoriesBar";
+import { FeaturedProducts } from "@/components/FeaturedProducts";
+import { FooterBar } from "@/components/FooterBar";
+import { HeaderBar } from "@/components/HeaderBar";
+
 export default function HomePage() {
     return (
-        <div>
-            <div id="categories-bar">
-
+        <div style={{ backgroundColor: "white", minHeight: "100vh"}}>
+            <div id="header-bar">
+                <HeaderBar></HeaderBar>
             </div>
-            <div id="featured-products">
-
+            <div id="featured-products" style={{ minHeight: "100vh "}}>
+                <FeaturedProducts></FeaturedProducts>
             </div>
-            <div id="footer">
-
+            <div id="footer" style={{ minHeight: "50px" }}>
+                <FooterBar></FooterBar>
             </div>
         </div>
     )
