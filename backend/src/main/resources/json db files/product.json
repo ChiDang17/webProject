@@ -16,5 +16,23 @@
         "price": 15,
         "description": "16 inch silver necklace",
         "imageLink": "www.example.com"
+    },
+    {
+        "productNumber": 3,
+        "productType": "bracelet",
+        "color": "silver",
+        "size": 2,
+        "price": 10,
+        "description": "size 2 silver bracelet",
+        "imageLink": "www.example.com"
+    },
+    {
+        "productNumber": 4,
+        "productType": "earring",
+        "color": "silver",
+        "size": 2,
+        "price": 10,
+        "description": "size 2 silver earrings",
+        "imageLink": "www.example.com"
     }
 ]

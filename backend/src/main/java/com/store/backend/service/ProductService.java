@@ -3,6 +3,7 @@ package com.store.backend.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import com.store.backend.model.Product;
@@ -58,5 +59,15 @@ public class ProductService {
 
     public List<Product> findByProductType(String productType) {
         return productRepository.findByProductType(productType);
+    }
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
+    public List<String> getProductTypes() {
+        return mongoTemplate.query(Product.class)
+            .distinct("productType")
+            .as(String.class)
+            .all();
     }
 }

@@ -1,4 +1,3 @@
-import { CategoriesBar } from "@/components/CategoriesBar";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
 import { FooterBar } from "@/components/FooterBar";
 import { HeaderBar } from "@/components/HeaderBar";

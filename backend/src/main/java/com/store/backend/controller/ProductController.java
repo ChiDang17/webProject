@@ -81,4 +81,9 @@ public class ProductController {
     public List<Product> findByProductType(@PathVariable String productType) {
         return productService.findByProductType(productType);
     }
+
+    @GetMapping("/categories")
+    public List<String> getProductCategories() {
+        return productService.getProductTypes();
+    }
 }
