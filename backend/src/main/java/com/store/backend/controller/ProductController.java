@@ -21,16 +21,6 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    // @PostMapping
-    // public ResponseEntity<List<Product>> createProduct() {
-    //     try {
-    //         List<Product> products = productService.createProduct();
-    //         return ResponseEntity.ok(products);
-    //     } catch (Exception e) {
-    //         return ResponseEntity.status(500).body(null);
-    //     }
-    // }
-
     @PostMapping
     public Product createProduct(@RequestBody Product product) {
         return productService.createProduct(product);

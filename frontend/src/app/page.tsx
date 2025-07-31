@@ -5,7 +5,7 @@ import { HeaderBar } from "@/components/HeaderBar";
 
 export default function HomePage() {
     return (
-        <div style={{ backgroundColor: "white", minHeight: "100vh"}}>
+        <div style={{ backgroundColor: "#EDE8D0", minHeight: "100vh"}}>
             <div id="header-bar">
                 <HeaderBar></HeaderBar>
             </div>

@@ -20,11 +20,17 @@ export const CategoriesBar = () => {
 
     return (
         <div>
+            <Link href={`/list_of_products`} style={{color: "#b39841ff", fontFamily: "Georgia, serif", fontSize: 20, padding: "20px"}}>
+                Shop By
+            </Link>
             {categories.map((category, index) => (
-                <Link key={index} href={`/list_of_products`} style={{color: "black", fontFamily: "Georgia, serif", fontSize: 25, marginRight: "20px"}}>
+                <Link key={index} href={`/list_of_products`} style={{color: "#b39841ff", fontFamily: "Georgia, serif", fontSize: 20, padding: "20px"}}>
                     {category}
                 </Link>
             ))}
+            <Link href={`/list_of_products`} style={{color: "#b39841ff", fontFamily: "Georgia, serif", fontSize: 20, padding: "20px"}}>
+                Best Sellers
+            </Link>
         </div>
     )
 }
