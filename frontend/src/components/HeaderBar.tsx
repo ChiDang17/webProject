@@ -7,8 +7,6 @@ import { IoPersonOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 
-// search, login/profile, wishlist, cart
-
 export const HeaderBar = () => {
     return (
         <div className="w-full h-10 bg-[#400000] sticky top-0">

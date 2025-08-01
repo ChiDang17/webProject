@@ -6,7 +6,7 @@
         "size": 5,
         "price": 10,
         "description": "size 5 gold ring",
-        "imageLink": "www.example.com"
+        "imageLink": "https://res.cloudinary.com/dmxl3isk1/image/upload/v1754011533/ring_pejnxr.webp"
     },
     {
         "productNumber": 2,
@@ -15,7 +15,7 @@
         "size": 16,
         "price": 15,
         "description": "16 inch silver necklace",
-        "imageLink": "www.example.com"
+        "imageLink": "https://res.cloudinary.com/dmxl3isk1/image/upload/v1754011252/necklace_uehl0g.webp"
     },
     {
         "productNumber": 3,
@@ -24,7 +24,7 @@
         "size": 2,
         "price": 10,
         "description": "size 2 silver bracelet",
-        "imageLink": "www.example.com"
+        "imageLink": "https://res.cloudinary.com/dmxl3isk1/image/upload/v1754011306/bracelet_wlbwzp.webp"
     },
     {
         "productNumber": 4,
@@ -33,6 +33,6 @@
         "size": 2,
         "price": 10,
         "description": "size 2 silver earrings",
-        "imageLink": "www.example.com"
+        "imageLink": "https://res.cloudinary.com/dmxl3isk1/image/upload/v1754011414/earrings_uzo5q9.webp"
     }
 ]
