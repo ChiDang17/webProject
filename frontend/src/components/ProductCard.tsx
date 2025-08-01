@@ -13,7 +13,7 @@ export const ProductCard = ({ productType, imageLink }: ProductCardProps) => {
             <div style={{ padding: 20, width: 310, height: 310 }}>
                 <img src={imageLink} style={{ height: 280, width: 280 }} />
             </div>
-            <p style={{ fontFamily: "Georgia, serif", color: "black", padding: 10 }}>Shop By {productType}</p>
+            <p style={{ fontFamily: "Georgia, serif", color: "black", padding: 10 }}>{productType}</p>
         </div>
     );
 };

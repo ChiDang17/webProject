@@ -10,14 +10,14 @@ type Banner = {
   url: string;
 };
 
-export const HomepageBanner = () => {
+export const SecondHomepageBanner = () => {
     const [banner, setBanner] = useState<Banner>();
 
     useEffect(() => {
         axios
             .get<Banner[]>("http://localhost:8080/api/banners")
             .then((response) => {
-                setBanner(response.data[0]);
+                setBanner(response.data[1]);
             })
             .catch((error) => {
                 console.error(error);
