@@ -20,8 +20,11 @@ public class HomepageBannersController {
     }
 
     @GetMapping
-    public List<HomepageBanners> getBanners() {
+    public List<HomepageBanners> getBanner() {
+        List<HomepageBanners> banners = homepageBannersRepository.findAll();
+        if (banners.isEmpty()) {
+            return null;
+        }
         return homepageBannersRepository.findAll();
     }
-
 }

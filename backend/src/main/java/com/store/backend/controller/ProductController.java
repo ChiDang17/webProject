@@ -76,4 +76,9 @@ public class ProductController {
     public List<String> getProductCategories() {
         return productService.getProductTypes();
     }
+
+    @GetMapping("/number/{productNumber}")
+    public Product findByProductNumber(@PathVariable int productNumber) {
+        return productService.findByProductNumber(productNumber);
+    }
 }

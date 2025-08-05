@@ -70,4 +70,8 @@ public class ProductService {
             .as(String.class)
             .all();
     }
+
+    public Product findByProductNumber(int productNumber) {
+        return productRepository.findByProductNumber(productNumber);
+    }
 }

@@ -3,7 +3,7 @@ import { customerData } from "@/model/Customer";
 
 // createCustomer (POST)
 axios
-    .post<customerData>("http://localhost:8080/api/customer", {
+    .post<customerData>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/customer", {
         "customerId": "1",
         "firstName": "Charlie",
         "surname": "Brown",
@@ -20,7 +20,7 @@ axios
 
 // getCustomerById (GET)
 axios
-    .get<customerData>("http://localhost:8080/api/customer/1")
+    .get<customerData>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/customer/1")
     .then((response) => {
         console.log(response.data)
     })
@@ -30,7 +30,7 @@ axios
 
 // findByEmail (GET)
 axios
-    .get<customerData>("http://localhost:8080/api/customer/email/cbrown%40gmail.com")
+    .get<customerData>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/customer/email/cbrown%40gmail.com")
     .then((response) => {
         console.log(response.data)
     })
@@ -40,7 +40,7 @@ axios
 
 // findByPhoneNumber (GET)
 axios
-    .get<customerData>("http://localhost:8080/api/customer/phoneNumber/1234567890")
+    .get<customerData>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/customer/phoneNumber/1234567890")
     .then((response) => {
         console.log(response.data)
     })
@@ -50,7 +50,7 @@ axios
 
 // getAllCustomers (GET)
 axios
-    .get<customerData>("http://localhost:8080/api/customer")
+    .get<customerData>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/customer")
     .then((response) => {
         console.log(response.data)
     })
@@ -68,7 +68,7 @@ const updatedCustomer = {
         "phoneNumber": "1234567890"
 }
 axios
-    .put<customerData>("http://localhost:8080/api/customer/1", updatedCustomer)
+    .put<customerData>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/customer/1", updatedCustomer)
     .then((response) => {
         console.log(response.data)
     })
@@ -78,7 +78,7 @@ axios
 
 // deleteCustomer (DELETE)
 axios
-    .delete("http://localhost:8080/api/customer/1")
+    .delete("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/customer/1")
     .then((response) => {
         console.log(response.data)
     })

@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductCard } from "./ProductCard";
+import { HomepageCard } from "./HomepageCard";
 import Link from "next/link";
 
 
@@ -9,22 +9,22 @@ export const FeaturedProducts = () => {
             <p style={{ color: "black", fontFamily: "Georgia, serif", fontSize: 25, position: "relative", left: "25px" }}>Featured Products:</p>
                 <div className="card-row" style={{ padding: "30px", textAlign: "justify", display: "inline-block"}}>
                     <Link href={`/specific_product`}>
-                        <ProductCard></ProductCard>
+                        <HomepageCard></HomepageCard>
                     </Link>
                 </div>
                 <div className="card-row" style={{ padding: "30px", textAlign: "justify", display: "inline-block"}}>
                     <Link href={`/specific_product`}>
-                        <ProductCard></ProductCard>
+                        <HomepageCard></HomepageCard>
                     </Link>
                 </div>
                 <div className="card-row" style={{ padding: "30px", textAlign: "justify", display: "inline-block"}}>
                     <Link href={`/specific_product`}>
-                        <ProductCard></ProductCard>
+                        <HomepageCard></HomepageCard>
                     </Link>
                 </div>
                 <div className="card-row" style={{ padding: "30px", textAlign: "justify", display: "inline-block"}}>
                     <Link href={`/specific_product`}>
-                        <ProductCard></ProductCard>
+                        <HomepageCard></HomepageCard>
                     </Link>
                 </div>
         </div>

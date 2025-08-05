@@ -1,17 +1,19 @@
 [
     {
         "productNumber": 1,
+        "productName": "Gold Ring",
         "productType": "Rings",
-        "color": "gold",
+        "color": "Gold",
         "size": 5,
         "price": 10,
-        "description": "size 5 gold ring",
+        "description": "Size 5 gold ring",
         "imageLink": "https://res.cloudinary.com/dmxl3isk1/image/upload/v1754011533/ring_pejnxr.webp"
     },
     {
         "productNumber": 2,
+        "productName": "Silver Necklace",
         "productType": "Necklaces",
-        "color": "silver",
+        "color": "Silver",
         "size": 16,
         "price": 15,
         "description": "16 inch silver necklace",
@@ -19,20 +21,22 @@
     },
     {
         "productNumber": 3,
+        "productName": "Silver Bracelet",
         "productType": "Bracelets",
-        "color": "silver",
+        "color": "Silver",
         "size": 2,
         "price": 10,
-        "description": "size 2 silver bracelet",
+        "description": "Size 2 silver bracelet",
         "imageLink": "https://res.cloudinary.com/dmxl3isk1/image/upload/v1754011306/bracelet_wlbwzp.webp"
     },
     {
         "productNumber": 4,
+        "productName": "Silver Earrings",
         "productType": "Earrings",
-        "color": "silver",
+        "color": "Silver",
         "size": 2,
         "price": 10,
-        "description": "size 2 silver earrings",
+        "description": "Size 2 silver earrings",
         "imageLink": "https://res.cloudinary.com/dmxl3isk1/image/upload/v1754011414/earrings_uzo5q9.webp"
     }
 ]

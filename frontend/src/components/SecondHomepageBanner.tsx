@@ -15,7 +15,7 @@ export const SecondHomepageBanner = () => {
 
     useEffect(() => {
         axios
-            .get<Banner[]>("http://localhost:8080/api/banners")
+            .get<Banner[]>("https://cg0jnzdv-3000.usw2.devtunnels.ms/api/banners")
             .then((response) => {
                 setBanner(response.data[1]);
             })

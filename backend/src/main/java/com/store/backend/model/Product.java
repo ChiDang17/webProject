@@ -11,10 +11,12 @@ public class Product {
     private String productId;
     @Field("productNumber")
     private int productNumber;
-    @Field("productType")
-    private String productType;
+    @Field("productName")
+    private String productName;
     @Field("color")
     private String color;
+    @Field("productType")
+    private String productType;
     @Field("size")
     private int size;
     @Field("price")
@@ -28,9 +30,10 @@ public class Product {
 
     }
 
-    public Product(String productId, int productNumber, String productType, String color, int size, double price, String description, String imageLink) {
+    public Product(String productId, int productNumber, String productName, String productType, String color, int size, double price, String description, String imageLink) {
         this.productId = productId;
         this.productNumber = productNumber;
+        this.productName = productName;
         this.productType = productType;
         this.color = color;
         this.size = size;
@@ -53,6 +56,14 @@ public class Product {
 
     public void setProductNumber(int productNumber) {
         this.productNumber = productNumber;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public String getProductType() {

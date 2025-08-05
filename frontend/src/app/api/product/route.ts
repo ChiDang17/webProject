@@ -4,7 +4,7 @@ import { productData } from "@/model/Product";
 
 // createProduct (POST)
 axios
-    .post<productData>("http://localhost:8080/api/product", {
+    .post<productData>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/product", {
         "productNumber": 1,
         "productType": "ring",
         "color": "gold",
@@ -22,7 +22,7 @@ axios
 
 // getProductById (GET)
 axios
-    .get<productData>("http://localhost:8080/api/product/68799a419a8f5bec5795a187")
+    .get<productData>("https://cg0jnzdv-8080.usw2.devtunnels.ms//api/product/68799a419a8f5bec5795a187")
     .then((response) => {
         console.log(response.data)
     })
@@ -32,7 +32,7 @@ axios
 
 // getAllProducts (GET)
 axios
-    .get<productData>("http://localhost:8080/api/product")
+    .get<productData>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/product")
     .then((response) => {
         console.log(response.data)
     })
@@ -42,7 +42,7 @@ axios
 
 // findByColor (GET)
 axios
-    .get<productData>("http://localhost:8080/api/product/color/gold")
+    .get<productData>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/product/color/gold")
     .then((response) => {
         console.log(response.data)
     })
@@ -52,7 +52,7 @@ axios
 
 // findByProductType (GET)
 axios
-    .get<productData>("http://localhost:8080/api/product/productType/ring")
+    .get<productData>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/product/productType/ring")
     .then((response) => {
         console.log(response.data)
     })
@@ -62,7 +62,17 @@ axios
 
 // findBySize (GET)
 axios
-    .get<productData>("http://localhost:8080/api/product/size/5")
+    .get<productData>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/product/size/5")
+    .then((response) => {
+        console.log(response.data)
+    })
+    .catch((error) => {
+        console.error(error)
+    })
+
+// findByProductNumber (GET)
+axios
+    .get<productData>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/product/productNumber/1")
     .then((response) => {
         console.log(response.data)
     })
@@ -81,7 +91,7 @@ const updatedProduct = {
     "imageLink": "www.example.com"
 }
 axios
-    .put<productData>("http://localhost:8080/api/product/68799a419a8f5bec5795a187", updatedProduct)
+    .put<productData>("https://cg0jnzdv-8080.usw2.devtunnels.ms//api/product/68799a419a8f5bec5795a187", updatedProduct)
     .then((response) => {
         console.log(response.data)
     })
@@ -91,7 +101,7 @@ axios
 
 // deleteProduct (DELETE)
 axios
-    .delete("http://localhost:8080/api/product/68799a419a8f5bec5795a187")
+    .delete("https://cg0jnzdv-8080.usw2.devtunnels.ms//api/product/68799a419a8f5bec5795a187")
     .then((response) => {
         console.log(response.data)
     })

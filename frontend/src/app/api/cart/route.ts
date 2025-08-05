@@ -3,7 +3,7 @@ import { cartData } from "@/model/Cart";
 
 // createCart (POST)
 axios
-    .post<cartData>("http://localhost:8080/api/cart", {
+    .post<cartData>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/cart", {
         customerId: '1',
         items: [
             {
@@ -21,7 +21,7 @@ axios
 
 // findByCustomerId (GET)
 axios
-    .get<cartData>("http://localhost:8080/api/cart/find/1")
+    .get<cartData>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/cart/find/1")
     .then((response) => {
         console.log(response.data)
     })
@@ -40,7 +40,7 @@ const updatedCart = {
     ]
 }
 axios
-    .put<cartData>("http://localhost:8080/api/cart/1", updatedCart)
+    .put<cartData>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/cart/1", updatedCart)
     .then((response) => {
         console.log(response.data)
     })
@@ -51,7 +51,7 @@ axios
 
 // deleteByCustomerId (DELETE)
 axios   
-    .delete("http://localhost:8080/api/cart/1")
+    .delete("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/cart/1")
     .then((response) => {
         console.log(response.data)
     })

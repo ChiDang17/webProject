@@ -1,5 +1,6 @@
 export interface productData {
     productId?: string;
+    productName: string;
     productNumber: number;
     productType: string;
     color: string;

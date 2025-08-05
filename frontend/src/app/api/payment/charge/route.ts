@@ -3,7 +3,7 @@ import { Payment } from "@/model/Payment";
 
 // chargeCard (POST)
 axios
-    .post<Payment>("http://localhost:8080/api/payment/charge", {
+    .post<Payment>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/payment/charge", {
         "customerId": "1",
         "amount": "10.00",
         "token": "1"
