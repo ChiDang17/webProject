@@ -20,10 +20,10 @@ export const CategoriesBar = () => {
     return (
         <div>
             <Link 
-                href={`/list_of_products`} 
+                href={`/list_of_products?category=all`} 
                 style={{ color: "#b39841ff", fontFamily: "Georgia, serif", fontSize: 20, padding: "20px" }}
             >
-                Shop By
+                Shop All
             </Link>
 
             {categories.map((category, index) => (

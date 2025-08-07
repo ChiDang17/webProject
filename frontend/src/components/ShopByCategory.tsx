@@ -13,7 +13,7 @@ export const ShopByCategory = () => {
         axios.get<productData[]>("https://cg0jnzdv-8080.usw2.devtunnels.ms/api/product")
             .then((response) => {
                 const allProducts = response.data;
-
+                
                 const typeMap = new Map<string, productData>();
                 for (const product of allProducts) {
                     if (!typeMap.has(product.productType)) {

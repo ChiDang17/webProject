@@ -81,4 +81,14 @@ public class ProductController {
     public Product findByProductNumber(@PathVariable int productNumber) {
         return productService.findByProductNumber(productNumber);
     }
+
+    @GetMapping("/allColors")
+    public List<String> getAllColors() {
+        return productService.getAllColors();
+    }
+
+    @GetMapping("/allSizes")
+    public List<Integer> getAllSizes() {
+        return productService.getAllSizes();
+    }   
 }

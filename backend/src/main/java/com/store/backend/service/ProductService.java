@@ -71,6 +71,20 @@ public class ProductService {
             .all();
     }
 
+    public List<String> getAllColors() {
+        return mongoTemplate.query(Product.class)
+            .distinct("color")
+            .as(String.class)
+            .all();
+    }
+
+    public List<Integer> getAllSizes() {
+        return mongoTemplate.query(Product.class)
+            .distinct("size")
+            .as(Integer.class)
+            .all();
+    }
+
     public Product findByProductNumber(int productNumber) {
         return productRepository.findByProductNumber(productNumber);
     }
