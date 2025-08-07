@@ -100,51 +100,51 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
                 <p>Colors:</p>
                     {colors.map(function(color) {
                         return (
-                            <label key={color}>
+                            <label key={color} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                                 <input
-                                type="checkbox"
-                                value={color}
-                                checked={filters.colors.indexOf(color) !== -1}
-                                onChange={() => colorCheckbox(color)}
-                            />
-                            {color}
-                        </label>
-                    );
-                })}
+                                    type="checkbox"
+                                    value={color}
+                                    checked={filters.colors.includes(color)}
+                                    onChange={() => colorCheckbox(color)}
+                                />
+                                    {color}
+                            </label>
+                        );
+                    })}
             </div>
 
             <div id='size-options'>
                 <p>Sizes:</p>
                     {sizes.map(function(size) {
                         return (
-                            <label key={size}>
+                            <label key={size} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                                 <input
                                     type="checkbox"
                                     value={size}
-                                    checked={filters.sizes.indexOf(size) !== -1}
+                                    checked={filters.sizes.includes(size)}
                                     onChange={() => sizeCheckbox(size)}
                                 />
-                            {size}
-                        </label>
-                    );
-                })}
+                                    {size}
+                            </label>
+                        );
+                    })}
             </div>
 
             <div id='product-type-options'>
                 <p>Jewellery Types:</p>
                     {productTypes.map(function(productType) {
                         return (
-                            <label key={productType}>
+                            <label key={productType} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                                 <input
                                     type="checkbox"
                                     value={productType}
-                                    checked={filters.productTypes.indexOf(productType) !== -1}
+                                    checked={filters.productTypes.includes(productType)}
                                     onChange={() => productTypeCheckbox(productType)}
                                 />
-                            {productType}
-                        </label>
-                    );
-                })}
+                                {productType}
+                            </label>
+                        );
+                    })}
             </div>
         </div>
     );

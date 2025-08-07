@@ -27,11 +27,14 @@ export default function list_of_products() {
             <div id="header-bar">
                 <HeaderBar></HeaderBar>
             </div>
-            <div id="filters-bar" style={{ minHeight: "100px", display: "flex", alignItems: "center", justifyContent: "center", gap: "20px", color: "black"}}>
-                <FiltersBar filters={filters} setFilters={setFilters}></FiltersBar>
-            </div>
-            <div id="products" style={{ minHeight: "100vh "}}>
-                <ProductsByCategory filters={filters}></ProductsByCategory>
+            <div id="page-contents" style={{ display: "flex", minHeight: "100vh" }}>
+                <div id="filters-bar" style={{ minHeight: "100px", display: "flex", alignItems: "center", justifyContent: "center", gap: "20px", color: "black", backgroundColor: "#e2c9abff", fontFamily: "Georgia, serif", width: 200}}>
+                    <FiltersBar filters={filters} setFilters={setFilters}></FiltersBar>
+                </div>
+
+                <div id="products" style={{ minHeight: "100vh "}}>
+                    <ProductsByCategory filters={filters}></ProductsByCategory>
+                </div>
             </div>
             <div id="footer" style={{ minHeight: "50px" }}>
                 <FooterBar></FooterBar>
