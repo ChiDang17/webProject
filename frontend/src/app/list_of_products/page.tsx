@@ -5,7 +5,8 @@ import { HeaderBar } from "@/components/HeaderBar";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductsByCategory } from "@/components/ProductsByCategory";
 import Link from "next/link";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 
 export type Filters = {
@@ -16,11 +17,40 @@ export type Filters = {
 
 
 export default function list_of_products() {
+    const searchParams = useSearchParams();
+
     const [filters, setFilters] = useState<Filters>({
         colors: [],
         sizes: [],
         productTypes: [],
     });
+
+    // reading filters from url
+    useEffect(() => {
+        const colorFromUrl = searchParams.get("colors");
+        const sizeFromUrl = searchParams.get("sizes");
+        const productTypeFromUrl = searchParams.get("productTypes");
+
+        const defaultFilters: Filters = {
+            colors: [],
+            sizes: [],
+            productTypes: [],
+        };
+        
+        if (colorFromUrl) {
+            defaultFilters.colors = colorFromUrl.split(",");
+        }
+
+        if (sizeFromUrl) {
+            defaultFilters.sizes = sizeFromUrl.split(",").map(Number);
+        }
+
+        if (productTypeFromUrl) {
+            defaultFilters.productTypes = productTypeFromUrl.split(",");
+        }
+
+        setFilters(defaultFilters);
+    }, [searchParams]);
 
     return (
         <div style={{ backgroundColor: "#EDE8D0", minHeight: "100vh"}}>
@@ -28,7 +58,7 @@ export default function list_of_products() {
                 <HeaderBar></HeaderBar>
             </div>
             <div id="page-contents" style={{ display: "flex", minHeight: "100vh" }}>
-                <div id="filters-bar" style={{ minHeight: "100px", display: "flex", alignItems: "center", justifyContent: "center", gap: "20px", color: "black", backgroundColor: "#e2c9abff", fontFamily: "Georgia, serif", width: 200}}>
+                <div id="filters-bar" style={{ minHeight: "100px", display: "flex", justifyContent: "center", gap: "20px", color: "black", backgroundColor: "#e2c9abff", fontFamily: "Georgia, serif", width: 300}}>
                     <FiltersBar filters={filters} setFilters={setFilters}></FiltersBar>
                 </div>
 
