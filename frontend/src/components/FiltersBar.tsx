@@ -115,11 +115,12 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
 
 
     return (
-        <div id='filter-box'>
-            <p style={{paddingBottom: "20px", paddingTop: "20px"}}>Filters</p>
+        <div id='filter-box' style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", padding: "20px", width: "300px" }}>
+            <p style={{paddingBottom: "20px", paddingTop: "20px", fontSize: 30}}>Filters</p>
             <div id='color-options' style={{borderBottomColor: "black", borderBottomWidth: "1px", borderBottomStyle: "solid", padding : "10px", width: "250px", marginBottom: "20px"}}>
                 <div onClick={() => setIsColorsOpen(!isColorsOpen)} style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
-                    Colors ▼
+                    <p>Colors</p>
+                    <p style={{ marginLeft: "170px" }}>▼</p>
                 </div>
                 {isColorsOpen && (
                     <ul>
@@ -142,7 +143,8 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
 
             <div id='size-options' style={{borderBottomColor: "black", borderBottomWidth: "1px", borderBottomStyle: "solid", padding : "10px", width: "250px", marginBottom: "20px", paddingBottom: "10px"}}>
                 <div onClick={() => setIsSizesOpen(!isSizesOpen)} style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
-                    Sizes ▼
+                    <p>Sizes</p>
+                    <p style={{ marginLeft: "180px" }}>▼</p>
                 </div>
                 {isSizesOpen && (
                     <ul>
@@ -165,7 +167,8 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
 
              <div id='product-type-options' style={{borderBottomColor: "black", borderBottomWidth: "1px", borderBottomStyle: "solid", padding : "10px", width: "250px", marginBottom: "20px", paddingBottom: "10px"}}>
                 <div onClick={() => setisProductTypesOpen(!isProductTypesOpen)} style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
-                    Jewellery Types ▼
+                    <p>Jewellery Types</p>
+                    <p style={{ marginLeft: "150px" }}>▼</p>
                 </div>
                 {isProductTypesOpen && (
                     <ul>
