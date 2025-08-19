@@ -9,7 +9,7 @@ import { ShopByMetal } from "@/components/ShopByMetal";
 export default function HomePage() {
     return (
         <div className="background">
-            <div id="header-bar">
+            <div className="header-bar">
                 <HeaderBar></HeaderBar>
             </div>
             <div id="homepage-banner">

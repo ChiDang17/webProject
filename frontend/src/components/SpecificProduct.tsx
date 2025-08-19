@@ -33,7 +33,7 @@ export const SpecificProduct = () => {
                     <div className="product-picture">
                         <img src={product.imageLink}/>
                     </div>
-                    <div id="product-text">
+                    <div className="product-text">
                         <p className="product-name-text">{product.productName}</p>
                         <p className="product-price-text">${product.price}</p>
                         <p className="product-desc-text">{product.description}</p>

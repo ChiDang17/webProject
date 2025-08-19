@@ -116,11 +116,11 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
 
     return (
         <div className='filter-box'>
-            <p style={{paddingBottom: "20px", paddingTop: "20px", fontSize: 30}}>Filters</p>
+            <p className='filter-bar-title'>Filters</p>
             <div className='filter-options'>
                 <div onClick={() => setIsColorsOpen(!isColorsOpen)} className='filter-clicked'>
                     <p>Colors</p>
-                    <p style={{ marginLeft: "170px" }}>▼</p>
+                    <p style={{ marginLeft: "12.5rem" }}>▼</p>
                 </div>
                 {isColorsOpen && (
                     <ul>
@@ -144,7 +144,7 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
             <div className='filter-options'>
                 <div onClick={() => setIsSizesOpen(!isSizesOpen)} className='filter-clicked'>
                     <p>Sizes</p>
-                    <p style={{ marginLeft: "180px" }}>▼</p>
+                    <p style={{ marginLeft: "13rem" }}>▼</p>
                 </div>
                 {isSizesOpen && (
                     <ul>
@@ -168,7 +168,7 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
              <div className='filter-options'>
                 <div onClick={() => setisProductTypesOpen(!isProductTypesOpen)} className='filter-clicked'>
                     <p>Jewellery Types</p>
-                    <p style={{ marginLeft: "150px" }}>▼</p>
+                    <p style={{ marginLeft: "11rem" }}>▼</p>
                 </div>
                 {isProductTypesOpen && (
                     <ul>

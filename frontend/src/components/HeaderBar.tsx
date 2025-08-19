@@ -9,20 +9,20 @@ import { IoCartOutline } from "react-icons/io5";
 
 export const HeaderBar = () => {
     return (
-        <div className="w-full h-10 bg-[#400000] sticky top-0">
-            <div className="container mx-auto px-4 h-full">
-                <div className="flex justify-between items-center h-full">
+        <div className="w-full bg-[#400000] sticky top-0">
+            <div className="container mx-auto px-4">
+                <div className="flex flex-wrap justify-between items-start py-2">
                     <div className="logo">
                         <a href={`/homepage`}>
                             <img src="/images/logo.png" className="logo"/>
                         </a>
                     </div>
 
-                    <div className="categories-bar">
+                    <div className="categories-bar w-full md:w-auto">
                         <CategoriesBar />
                     </div>
                     
-                    <div className="icons" style={{ padding: "40px" }}>
+                    <div className="icons flex gap-4">
                         <IoMdSearch className="page-icons" />
                         <IoPersonOutline className="page-icons" />
                         <IoMdHeartEmpty className="page-icons" />

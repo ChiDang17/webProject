@@ -46,21 +46,19 @@ export const ProductsByCategory = ({ filters }: { filters: Filters }) => {
     );
 
     return (
-        <div style={{ position: "relative", top: 25}}>
-            <div className="products-box">
-                {filteredProducts.map((product, index) => (
-                    <div key={index}>
-                        <Link href={`/specific_product?productNumber=${product.productNumber}`}>
-                            <ProductCard
-                                productName={product.productName}
-                                imageLink={product.imageLink}
-                                price={product.price}
-                            />
-                        </Link>
-                    </div>
-            
-                ))}
-            </div>
+        <div className="products-box">
+            {filteredProducts.map((product, index) => (
+                <Link
+                    key={index}
+                    href={`/specific_product?productNumber=${product.productNumber}`}
+                >
+                <ProductCard
+                    productName={product.productName}
+                    imageLink={product.imageLink}
+                    price={product.price}
+                />
+                </Link>
+            ))}
         </div>
     )
 }

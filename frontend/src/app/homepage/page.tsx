@@ -8,26 +8,25 @@ import { ShopByMetal } from "@/components/ShopByMetal";
 
 export default function HomePage() {
     return (
-        <div className="page-container">
-                <div id="header-bar">
-                    <HeaderBar></HeaderBar>
-                </div>
-                <div id="homepage-banner">
-                    <HomepageBanner></HomepageBanner>
-                </div>
-                <div className="shop-by-category">
-                    <ShopByCategory></ShopByCategory>
-                </div>
-                <div className="second-homepage-banner">
-                    <SecondHomepageBanner></SecondHomepageBanner>
-                </div>
-                <div className="shop-by-metal">
-                    <ShopByMetal></ShopByMetal>
-                </div>
-                <div className="footer">
-                    <FooterBar></FooterBar>
-                </div>
+        <div className="background">
+            <div className="header-bar">
+                <HeaderBar></HeaderBar>
+            </div>
+            <div id="homepage-banner">
+                <HomepageBanner></HomepageBanner>
+            </div>
+            <div className="shop-by-category">
+                <ShopByCategory></ShopByCategory>
+            </div>
+             <div className="second-homepage-banner">
+                <SecondHomepageBanner></SecondHomepageBanner>
+            </div>
+            <div className="shop-by-metal">
+                <ShopByMetal></ShopByMetal>
+            </div>
+            <div className="footer">
+                <FooterBar></FooterBar>
+            </div>
         </div>
-        
     )
 }

@@ -34,9 +34,9 @@ export const ShopByMetal = () => {
                <div className="products-box">
                     {categoryCard.map((product, index) => (
                         <div key={index} style={{padding:"15px"}}>
-                        <Link href={`/list_of_products?category=${product.color}`}>
-                            <HomepageCard productType={product.color} imageLink={product.imageLink}></HomepageCard>
-                        </Link>
+                            <Link href={`/list_of_products?colors=${product.color}`}>
+                                <HomepageCard productType={product.color} imageLink={product.imageLink}></HomepageCard>
+                            </Link>
                         </div>
                     ))}
                </div>

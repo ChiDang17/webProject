@@ -11,7 +11,7 @@ export default function specific_product() {
 
     return (
         <div className="background">
-            <div id="header-bar">
+            <div className="header-bar">
                 <HeaderBar></HeaderBar>
             </div>
             <div className="specific-product">
