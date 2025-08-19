@@ -115,10 +115,10 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
 
 
     return (
-        <div id='filter-box' style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", padding: "20px", width: "300px" }}>
+        <div className='filter-box'>
             <p style={{paddingBottom: "20px", paddingTop: "20px", fontSize: 30}}>Filters</p>
-            <div id='color-options' style={{borderBottomColor: "black", borderBottomWidth: "1px", borderBottomStyle: "solid", padding : "10px", width: "250px", marginBottom: "20px"}}>
-                <div onClick={() => setIsColorsOpen(!isColorsOpen)} style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
+            <div className='filter-options'>
+                <div onClick={() => setIsColorsOpen(!isColorsOpen)} className='filter-clicked'>
                     <p>Colors</p>
                     <p style={{ marginLeft: "170px" }}>▼</p>
                 </div>
@@ -126,7 +126,7 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
                     <ul>
                         {colors.map(function(color) {
                         return (
-                            <label key={color} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                            <label key={color} className='filter-choices'>
                                 <input
                                     type="checkbox"
                                     value={color}
@@ -141,8 +141,8 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
                 )}
             </div>
 
-            <div id='size-options' style={{borderBottomColor: "black", borderBottomWidth: "1px", borderBottomStyle: "solid", padding : "10px", width: "250px", marginBottom: "20px", paddingBottom: "10px"}}>
-                <div onClick={() => setIsSizesOpen(!isSizesOpen)} style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
+            <div className='filter-options'>
+                <div onClick={() => setIsSizesOpen(!isSizesOpen)} className='filter-clicked'>
                     <p>Sizes</p>
                     <p style={{ marginLeft: "180px" }}>▼</p>
                 </div>
@@ -150,7 +150,7 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
                     <ul>
                         {sizes.map(function(size) {
                         return (
-                            <label key={size} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                            <label key={size} className='filter-choices'>
                                 <input
                                     type="checkbox"
                                     value={size}
@@ -165,8 +165,8 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
                 )}
             </div>
 
-             <div id='product-type-options' style={{borderBottomColor: "black", borderBottomWidth: "1px", borderBottomStyle: "solid", padding : "10px", width: "250px", marginBottom: "20px", paddingBottom: "10px"}}>
-                <div onClick={() => setisProductTypesOpen(!isProductTypesOpen)} style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
+             <div className='filter-options'>
+                <div onClick={() => setisProductTypesOpen(!isProductTypesOpen)} className='filter-clicked'>
                     <p>Jewellery Types</p>
                     <p style={{ marginLeft: "150px" }}>▼</p>
                 </div>
@@ -174,7 +174,7 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
                     <ul>
                         {productTypes.map(function(productType) {
                         return (
-                            <label key={productType} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                            <label key={productType} className='filter-choices'>
                                 <input
                                     type="checkbox"
                                     value={productType}
@@ -189,7 +189,7 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
                 )}
             </div>
            
-            <div id='apply-all-filters' style={{outlineColor:"black", outlineStyle:"solid", outlineWidth:"1px", padding : "10px", width: "130px", textAlign: "center"}}>
+            <div id='apply-all-filters' className='apply-filters-button'>
                     <Link href={buildFilters()}>
                         Apply Filters
                     </Link>

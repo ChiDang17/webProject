@@ -30,13 +30,13 @@ export const ShopByCategory = () => {
     
     return (
         <div style={{ position: "relative", top: 25}}>
-            <p style={{ color: "black", fontFamily: "Georgia, serif", fontSize: 25, position: "relative", left: "25px" }}>Shop By Category:</p>
-               <div style={{ display: "flex", flexWrap: "wrap", padding: "30px" }}>
+            <p className="shop-by-text">Shop By Category:</p>
+               <div className="products-box">
                     {categoryCard.map((product, index) => (
-                        <div key={index} style={{ padding: "15px" }}>
-                        <Link href={`/list_of_products?category=${product.productType}`}>
-                            <HomepageCard productType={product.productType} imageLink={product.imageLink}></HomepageCard>
-                        </Link>
+                        <div key={index}>
+                            <Link href={`/list_of_products?category=${product.productType}`}>
+                                <HomepageCard productType={product.productType} imageLink={product.imageLink}></HomepageCard>
+                            </Link>
                         </div>
                     ))}
                </div>

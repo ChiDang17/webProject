@@ -14,7 +14,7 @@ export const HeaderBar = () => {
                 <div className="flex justify-between items-center h-full">
                     <div className="logo">
                         <a href={`/homepage`}>
-                            <img src="/images/logo.png" height={5} width={90} style={{ position: "relative", right: 80 }}/>
+                            <img src="/images/logo.png" className="logo"/>
                         </a>
                     </div>
 
@@ -23,10 +23,10 @@ export const HeaderBar = () => {
                     </div>
                     
                     <div className="icons" style={{ padding: "40px" }}>
-                        <IoMdSearch color="#b39841ff" size={20} style={{ textAlign: "justify", display: "inline-block" }} />
-                        <IoPersonOutline color="#b39841ff" size={20} style={{ textAlign: "justify", display: "inline-block"}} />
-                        <IoMdHeartEmpty color="#b39841ff" size={20} style={{ textAlign: "justify", display: "inline-block"}} />
-                        <IoCartOutline color="#b39841ff" size={20} style={{ textAlign: "justify", display: "inline-block"}} />
+                        <IoMdSearch className="page-icons" />
+                        <IoPersonOutline className="page-icons" />
+                        <IoMdHeartEmpty className="page-icons" />
+                        <IoCartOutline className="page-icons" />
                     </div>
                 </div>
             </div>

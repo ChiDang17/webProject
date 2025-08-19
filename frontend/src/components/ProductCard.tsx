@@ -9,11 +9,11 @@ type ProductCardProps = {
 export const ProductCard = ({ productName, price, imageLink }: ProductCardProps) => {
     return (
         <div style={{ textAlign: "center" }}>
-            <div style={{ padding: 20, width: 310, height: 310 }}>
-                <img src={imageLink} style={{ height: 280, width: 280 }} />
+            <div className="product-card-box">
+                <img src={imageLink} className="product-card-image" />
             </div>
-            <p style={{ fontFamily: "Georgia, serif", color: "black", padding: 10 }}>{productName}</p>
-            <p style={{ fontFamily: "Georgia, serif", color: "black", padding: 10 }}>${price}</p>
+            <p className="product-card-text">{productName}</p>
+            <p className="product-card-text">${price}</p>
         </div>
     );
 }

@@ -10,14 +10,14 @@ import { useEffect, useState } from "react";
 export default function specific_product() {
 
     return (
-        <div style={{ backgroundColor: "#EDE8D0", minHeight: "100vh"}}>
+        <div className="background">
             <div id="header-bar">
                 <HeaderBar></HeaderBar>
             </div>
-            <div id="specific-product" style={{ minHeight: "100vh " }}>
+            <div className="specific-product">
                 <SpecificProduct></SpecificProduct>
             </div>
-            <div id="footer" style={{ minHeight: "50px" }}>
+            <div className="footer">
                 <FooterBar></FooterBar>
             </div>
         </div>

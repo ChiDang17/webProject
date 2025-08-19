@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import Link from 'next/link';
 
+
 export const CategoriesBar = () => {
     const [categories, setCategories] = useState<string[]>([]);
 
@@ -21,7 +22,7 @@ export const CategoriesBar = () => {
         <div>
             <Link 
                 href={`/list_of_products?category=all`} 
-                style={{ color: "#b39841ff", fontFamily: "Georgia, serif", fontSize: 20, padding: "20px" }}
+                className='category-bar-buttons'
             >
                 Shop All
             </Link>
@@ -30,7 +31,7 @@ export const CategoriesBar = () => {
                 <Link 
                     key={index} 
                     href={`/list_of_products?category=${encodeURIComponent(category)}`} 
-                    style={{ color: "#b39841ff", fontFamily: "Georgia, serif", fontSize: 20, padding: "20px" }}
+                    className='category-bar-buttons'
                 >
                     {category}
                 </Link>
@@ -38,7 +39,7 @@ export const CategoriesBar = () => {
 
             <Link 
                 href={`/list_of_products`} 
-                style={{ color: "#b39841ff", fontFamily: "Georgia, serif", fontSize: 20, padding: "20px" }}
+                className='category-bar-buttons'
             >
                 Best Sellers
             </Link>

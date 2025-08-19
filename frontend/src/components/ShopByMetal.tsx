@@ -30,10 +30,10 @@ export const ShopByMetal = () => {
     
     return (
         <div style={{ position: "relative", top: 50}}>
-            <p style={{ color: "black", fontFamily: "Georgia, serif", fontSize: 25, position: "relative", left: "25px" }}>Shop By Metal:</p>
-               <div style={{ display: "flex", flexWrap: "wrap", padding: "30px" }}>
+            <p className="shop-by-text">Shop By Metal:</p>
+               <div className="products-box">
                     {categoryCard.map((product, index) => (
-                        <div key={index} style={{ padding: "15px" }}>
+                        <div key={index} style={{padding:"15px"}}>
                         <Link href={`/list_of_products?category=${product.color}`}>
                             <HomepageCard productType={product.color} imageLink={product.imageLink}></HomepageCard>
                         </Link>

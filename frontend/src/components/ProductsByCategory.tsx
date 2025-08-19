@@ -47,13 +47,18 @@ export const ProductsByCategory = ({ filters }: { filters: Filters }) => {
 
     return (
         <div style={{ position: "relative", top: 25}}>
-            <div style={{ display: "flex", flexWrap: "wrap", padding: "30px" }}>
+            <div className="products-box">
                 {filteredProducts.map((product, index) => (
-                    <div key={index} style={{ padding: "15px" }}>
-                    <Link href={`/specific_product?productNumber=${product.productNumber}`}>
-                        <ProductCard productName={product.productName} imageLink={product.imageLink} price={product.price}></ProductCard>
-                    </Link>
+                    <div key={index}>
+                        <Link href={`/specific_product?productNumber=${product.productNumber}`}>
+                            <ProductCard
+                                productName={product.productName}
+                                imageLink={product.imageLink}
+                                price={product.price}
+                            />
+                        </Link>
                     </div>
+            
                 ))}
             </div>
         </div>

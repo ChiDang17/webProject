@@ -8,7 +8,6 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-
 export type Filters = {
     colors: string[];
     sizes: number[];
@@ -53,20 +52,20 @@ export default function list_of_products() {
     }, [searchParams]);
 
     return (
-        <div style={{ backgroundColor: "#EDE8D0", minHeight: "100vh"}}>
-            <div id="header-bar">
+        <div className="background">
+            <div className="header-bar">
                 <HeaderBar></HeaderBar>
             </div>
-            <div id="page-contents" style={{ display: "flex", minHeight: "100vh" }}>
-                <div id="filters-bar" style={{ minHeight: "100px", display: "flex", justifyContent: "center", gap: "20px", color: "black", backgroundColor: "#e2c9abff", fontFamily: "Georgia, serif", width: 300}}>
+            <div className="page-contents">
+                <div className="filters-bar">
                     <FiltersBar filters={filters} setFilters={setFilters}></FiltersBar>
                 </div>
 
-                <div id="products" style={{ minHeight: "100vh "}}>
+                <div className="products">
                     <ProductsByCategory filters={filters}></ProductsByCategory>
                 </div>
             </div>
-            <div id="footer" style={{ minHeight: "50px" }}>
+            <div className="footer">
                 <FooterBar></FooterBar>
             </div>
         </div>
