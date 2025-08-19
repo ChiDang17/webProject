@@ -82,6 +82,8 @@ body {
   color: #b39841ff; 
   white-space: nowrap; 
   display: inline-block;
+  flex: 1 1 auto;
+  min-width: 0;  
   font-size: clamp(0.8rem, 1.25rem, 1.5rem); 
 }
 
