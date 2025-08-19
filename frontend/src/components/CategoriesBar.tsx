@@ -19,7 +19,7 @@ export const CategoriesBar = () => {
     }, []);
 
     return (
-        <div className="flex no-scrollbar space-x-md">
+        <div>
             <Link 
                 href={`/list_of_products?category=all`} 
                 className='category-bar-buttons'
