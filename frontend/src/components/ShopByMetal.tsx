@@ -29,7 +29,7 @@ export const ShopByMetal = () => {
     }, []);
     
     return (
-        <div style={{ position: "relative", top: 50}}>
+        <div style={{ top: 50}}>
             <p className="shop-by-text">Shop By Metal:</p>
                <div className="products-box">
                     {categoryCard.map((product, index) => (
