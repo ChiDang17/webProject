@@ -3,8 +3,12 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import Link from 'next/link';
 
+type CategoriesBarProps = {
+  isVertical?: boolean; 
+  textColor?: string;
+};
 
-export const CategoriesBar = () => {
+export const CategoriesBar = ({isVertical, textColor}: CategoriesBarProps) => {
     const [categories, setCategories] = useState<string[]>([]);
 
     useEffect(() => {
@@ -18,11 +22,17 @@ export const CategoriesBar = () => {
             });
     }, []);
 
+    const popupColor = `category-bar-buttons ${textColor ? textColor : "text-[#b39841ff]"}`;
+
     return (
-        <div className="flex overflow-x-auto md:overflow-x-visible whitespace-nowrap gap-4">
+        <div className={
+            isVertical
+                ? "flex flex-col space-y-3" //vertical for popup
+                : "flex overflow-x-auto md:overflow-x-visible whitespace-nowrap gap-4" // horizontal for normal header
+            }>
             <Link 
                 href={`/list_of_products?category=all`} 
-                className='category-bar-buttons'
+                className={popupColor}
             >
                 Shop All
             </Link>
@@ -31,7 +41,7 @@ export const CategoriesBar = () => {
                 <Link 
                     key={index} 
                     href={`/list_of_products?category=${encodeURIComponent(category)}`} 
-                    className='category-bar-buttons'
+                    className={popupColor}
                 >
                     {category}
                 </Link>
@@ -39,7 +49,7 @@ export const CategoriesBar = () => {
 
             <Link 
                 href={`/list_of_products`} 
-                className='category-bar-buttons'
+                className={popupColor}
             >
                 Best Sellers
             </Link>

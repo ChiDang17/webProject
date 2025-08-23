@@ -1,13 +1,16 @@
 "use client";
-import React from "react"
+import React, { useState } from "react"
 import { CategoriesBar } from "./CategoriesBar";
 
-import { IoMdSearch } from "react-icons/io";
+import { IoMdMenu, IoMdSearch } from "react-icons/io";
 import { IoPersonOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
+import { CategoriesPopUp } from "./CategoriesPopUp";
 
 export const HeaderBar = () => {
+    const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
+
     return (
         <div className="w-full bg-[#400000] sticky top-0">
             <div className="container mx-auto px-4">
@@ -27,9 +30,16 @@ export const HeaderBar = () => {
                         <IoPersonOutline className="page-icons" />
                         <IoMdHeartEmpty className="page-icons" />
                         <IoCartOutline className="page-icons" />
+                        <button onClick={() => setIsCategoriesOpen(true)}>
+                            <IoMdMenu className="page-icons" />
+                        </button>
                     </div>
                 </div>
             </div>
+            <CategoriesPopUp
+                isOpen={isCategoriesOpen}
+                onClose={() => setIsCategoriesOpen(false)}
+            />
         </div>
     );
 };

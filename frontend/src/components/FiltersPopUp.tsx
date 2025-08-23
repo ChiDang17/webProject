@@ -36,7 +36,7 @@ export const FiltersPopUp = ({ filters, setFilters, className }: FiltersPopUpPro
         style={{ backgroundColor: '#e2c9abff' }}
       >
         <p className='filter-bar-title'>Filters</p>
-        <button  className='close-filters-button'onClick={() => setIsOpen(false)}>✕</button>
+        <button className='close-filters-button' onClick={() => setIsOpen(false)}>✕</button>
 
         <FiltersBar filters={filters} setFilters={setFilters} className="filters-bar" />
       </div>

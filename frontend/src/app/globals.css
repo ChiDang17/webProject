@@ -79,7 +79,6 @@
   .category-bar-buttons {
     font-family: Georgia, serif;
     padding: 1.5rem;
-    color: #b39841ff; 
     /*white-space: nowrap;*/
     display: inline-block;
     flex: 1 1 auto;
