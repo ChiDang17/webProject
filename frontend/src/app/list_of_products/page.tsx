@@ -1,5 +1,6 @@
 "use client";
 import { FiltersBar } from "@/components/FiltersBar";
+import { FiltersPopUp } from "@/components/FiltersPopUp";
 import { FooterBar } from "@/components/FooterBar";
 import { HeaderBar } from "@/components/HeaderBar";
 import { ProductCard } from "@/components/ProductCard";
@@ -57,9 +58,7 @@ export default function list_of_products() {
                 <HeaderBar></HeaderBar>
             </div>
             <div className="page-contents">
-                <div className="filters-bar">
-                    <FiltersBar filters={filters} setFilters={setFilters}></FiltersBar>
-                </div>
+                <FiltersPopUp filters={filters} setFilters={setFilters}></FiltersPopUp>
 
                 <div className="products">
                     <ProductsByCategory filters={filters}></ProductsByCategory>

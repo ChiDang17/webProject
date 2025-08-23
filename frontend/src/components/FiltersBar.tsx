@@ -8,9 +8,10 @@ import { RiDropdownList } from 'react-icons/ri';
 type FiltersBarProps = {
   filters: Filters;
   setFilters: React.Dispatch<React.SetStateAction<Filters>>; // update state of filters
+  className?: string;
 };
 
-export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
+export const FiltersBar = ({ filters, setFilters, className }: FiltersBarProps) => {
     const [colors, setColors] = useState<string[]>([]);
     const [sizes, setSizes] = useState<number[]>([]);
     const [productTypes, setProductTypes] = useState<string[]>([]);
@@ -115,12 +116,12 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
 
 
     return (
-        <div className='filter-box'>
-            <p className='filter-bar-title'>Filters</p>
-            <div className='filter-options'>
+        <div className="filters-bar">
+            <div className='all-filter-options'>
+                <div className='filter-options'>
                 <div onClick={() => setIsColorsOpen(!isColorsOpen)} className='filter-clicked'>
                     <p>Colors</p>
-                    <p style={{ marginLeft: "12.5rem" }}>▼</p>
+                    <p style={{ marginLeft: "14.7rem" }}>▼</p>
                 </div>
                 {isColorsOpen && (
                     <ul>
@@ -144,7 +145,7 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
             <div className='filter-options'>
                 <div onClick={() => setIsSizesOpen(!isSizesOpen)} className='filter-clicked'>
                     <p>Sizes</p>
-                    <p style={{ marginLeft: "13rem" }}>▼</p>
+                    <p style={{ marginLeft: "15.3rem" }}>▼</p>
                 </div>
                 {isSizesOpen && (
                     <ul>
@@ -168,7 +169,7 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
              <div className='filter-options'>
                 <div onClick={() => setisProductTypesOpen(!isProductTypesOpen)} className='filter-clicked'>
                     <p>Jewellery Types</p>
-                    <p style={{ marginLeft: "11rem" }}>▼</p>
+                    <p style={{ marginLeft: "10.5rem" }}>▼</p>
                 </div>
                 {isProductTypesOpen && (
                     <ul>
@@ -188,12 +189,15 @@ export const FiltersBar = ({ filters, setFilters }: FiltersBarProps) => {
                     </ul>
                 )}
             </div>
-           
-            <div id='apply-all-filters' className='apply-filters-button'>
+             <div id='apply-all-filters' className='apply-filters-button'>
                     <Link href={buildFilters()}>
                         Apply Filters
                     </Link>
             </div>
+            </div>
+            
+           
+           
         </div>
     );
 };

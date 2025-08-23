@@ -19,7 +19,7 @@ export const CategoriesBar = () => {
     }, []);
 
     return (
-        <div>
+        <div className="flex overflow-x-auto md:overflow-x-visible whitespace-nowrap gap-4">
             <Link 
                 href={`/list_of_products?category=all`} 
                 className='category-bar-buttons'
